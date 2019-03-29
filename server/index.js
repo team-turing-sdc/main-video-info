@@ -1,12 +1,14 @@
 const express = require('express');
 const app = express();
 const PORT = 2000 || process.env.PORT;
-const db = require('../db/index.js').db;
+const db = require('../db/index.js');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 app.use(express.static('client/dist'))
 app.use(bodyParser.urlencoded( { extended: true } ))
 app.use(bodyParser.json())
+app.use(cors());
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
@@ -14,7 +16,13 @@ app.listen(PORT, () => {
 
 // get request example
 app.get('/movies', (req, res) => {
-  // query into db
- console.log('Testing');
- res.send('hi');
+  console.log(req.body);
+  let movieId = req.body.id;
+  db.getMovieInfo(movieId, (err, results) => {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.json(results);
+    }
+  })
 });
