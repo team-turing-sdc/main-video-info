@@ -6,6 +6,7 @@ db.on('connected', () => {
   console.log('fec db connected');
 })
 
+// db helper functions
 
 module.exports = {
   db
