@@ -6,7 +6,7 @@ db.on('connected', () => {
   console.log('fec db connected');
 })
 // db schema ???
-let movieInfoSchema = mongoose.Schema({
+const movieInfoSchema = mongoose.Schema({
   id: Number,
   name: String,
   info: {
@@ -19,12 +19,22 @@ let movieInfoSchema = mongoose.Schema({
     rating: String
   }
 });
+
+let Movie = mongoose.model('Movie', movieInfoSchema);
 // db helper functions
-let getMovieName = () => {
-  db.collection
+let getMovieInfo = (id, callback) => {
+  let query = Movie.find({'id': id});
+  query.exec((err, result) => {
+    if (err) {
+      callback(err, null);
+    }
+    callback(null, result);
+  });
 };
 
 
 module.exports = {
-  db
+  db: db,
+  getMovieInfo: getMovieInfo
+
 };
