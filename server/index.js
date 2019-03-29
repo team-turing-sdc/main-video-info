@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
 const PORT = 2000 || process.env.PORT;
-
+const db = require('../db/index.js');
+const bodyParser = require('body-parser');
 
 app.use(express.static('client/dist'))
+app.use(bodyParser.urlencoded( { extended: true } ))
+app.use(bodyParser.json())
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
@@ -12,4 +15,5 @@ app.listen(PORT, () => {
 // get request example
 app.get('/movies', (req, res) => {
   // query into db
+  
 });

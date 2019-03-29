@@ -5,3 +5,8 @@ const db = mongoose.connection;
 db.on('connected', () => {
   console.log('fec db connected');
 })
+
+
+module.exports = {
+  db
+};
