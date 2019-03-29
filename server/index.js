@@ -8,3 +8,8 @@ app.use(express.static('client/dist'))
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 })
+
+// get request example
+app.get('/movies', (req, res) => {
+  // query into db
+});
