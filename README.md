@@ -1,6 +1,6 @@
-# Project Name
+# Movie Information Component
 
-> Project description
+> Module worked on for FEC
 
 ## Related Projects
 
