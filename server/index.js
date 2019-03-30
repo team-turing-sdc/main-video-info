@@ -29,4 +29,6 @@ app.get('/movies', (req, res) => {
 // route for getting movie poster
 app.get('/movies/poster', (req, res) => {
   // create a db helper function
+  console.log(req.body);
+  res.send('test');
 })

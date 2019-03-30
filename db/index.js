@@ -35,12 +35,13 @@ let getMovieInfo = (id, callback) => {
 
 // get the poster image from db
 let getMoviePoster = (id, callback) => {
-  
+
 };
 
 
 module.exports = {
   db: db,
-  getMovieInfo: getMovieInfo
+  getMovieInfo: getMovieInfo,
+  getMoviePoster: getMoviePoster
 
 };
