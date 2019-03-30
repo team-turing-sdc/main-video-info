@@ -35,7 +35,15 @@ let getMovieInfo = (id, callback) => {
 
 // get the poster image from db
 let getMoviePoster = (id, callback) => {
-
+  let query = Movie.find( {'id': id} );
+  query
+    .select('image')
+    .exec((err, result) => {
+      if (err) {
+        callback(err, null);
+      }
+      callback(null, result);
+    });
 };
 
 
