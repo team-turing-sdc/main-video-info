@@ -22,6 +22,7 @@ const movieInfoSchema = mongoose.Schema({
 
 let Movie = mongoose.model('Movie', movieInfoSchema);
 // db helper functions
+// grab all info related to movie except for poster
 let getMovieInfo = (id, callback) => {
   let query = Movie.find({'id': id});
   query.exec((err, result) => {
@@ -30,6 +31,11 @@ let getMovieInfo = (id, callback) => {
     }
     callback(null, result);
   });
+};
+
+// get the poster image from db
+let getMoviePoster = (id, callback) => {
+  
 };
 
 
