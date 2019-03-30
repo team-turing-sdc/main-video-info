@@ -43,7 +43,7 @@ class App extends React.Component {
     return (
       <div>
         <MovieInfo />
-        <MoviePoster />
+        <MoviePoster poster={this.state.poster}/>
       </div>
     )
   }

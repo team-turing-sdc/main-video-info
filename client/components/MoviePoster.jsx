@@ -1,9 +1,9 @@
 import React from 'react';
 
-const MoviePoster = (props) => {
+const MoviePoster = ({ poster }) => {
   // look into object destructuring
   return (
-    <div>Poster</div>
+    <div><img src={poster}/></div>
   );
 };
 
