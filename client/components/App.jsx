@@ -15,13 +15,20 @@ class App extends React.Component {
   componentDidMount() {
     this.getMoviePoster(this.state.movieId);
   }
-  getMoviePoster(movieId) {
+  getMoviePoster(id) {
     fetch('/movies/poster')
     .then(res => res.json())
     .then(
       result => {
+        // grab correct poster
+        let image;
+        result.forEach(poster => {
+          if (poster.id === this.state.movieId) {
+            image = poster.info.image;
+          }
+        })
         this.setState({
-          poster: result
+          poster: image
         });
       },
       error => {
@@ -35,7 +42,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <img src="https://s3.us-east-2.amazonaws.com/fec-hrr37-brian/gettyimages-527874823-1024x1024.jpg"></img>
         <MovieInfo />
         <MoviePoster />
       </div>
