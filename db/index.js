@@ -33,12 +33,10 @@ let getMovieInfo = (id, callback) => {
   });
 };
 
-// get the poster image from db
-let getMoviePoster = (id, callback) => {
-  let query = Movie.find( {'id': id} );
-  query
-    .select('info.image')
-    .exec((err, result) => {
+// get the poster images from db
+let getMoviePosters = (callback) => {
+  let query = Movie.find( {} ).select('id info.image');
+  query.exec((err, result) => {
       if (err) {
         callback(err, null);
       }
@@ -50,6 +48,6 @@ let getMoviePoster = (id, callback) => {
 module.exports = {
   db: db,
   getMovieInfo: getMovieInfo,
-  getMoviePoster: getMoviePoster
+  getMoviePosters: getMoviePosters
 
 };

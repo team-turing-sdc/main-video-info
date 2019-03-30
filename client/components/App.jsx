@@ -12,13 +12,11 @@ class App extends React.Component {
   }
 
   // fetch movie poster on mount
-  // componentDidMount() {
-  //   this.getMoviePoster(this.state.movieId);
-  // }
+  componentDidMount() {
+    this.getMoviePoster(this.state.movieId);
+  }
   getMoviePoster(movieId) {
-    fetch('/movies/poster', {
-      body: JSON.stringify({id: movieId})
-    })
+    fetch('/movies/poster')
     .then(res => res.json())
     .then(
       result => {

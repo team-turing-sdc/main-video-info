@@ -29,9 +29,7 @@ app.get('/movies', (req, res) => {
 // route for getting movie poster
 app.get('/movies/poster', (req, res) => {
   // create a db helper function
-  console.log(req.body);
-  let id = req.body.id;
-  db.getMoviePoster(id, (err, results) => {
+  db.getMoviePosters((err, results) => {
     if (err) {
       res.sendStatus(500);
     } else {
