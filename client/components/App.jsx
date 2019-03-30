@@ -12,9 +12,9 @@ class App extends React.Component {
   }
 
   // fetch movie poster on mount
-  componentDidMount() {
-    this.getMoviePoster(this.state.movieId);
-  }
+  // componentDidMount() {
+  //   this.getMoviePoster(this.state.movieId);
+  // }
   getMoviePoster(movieId) {
     fetch('/movies/poster', {
       body: JSON.stringify({id: movieId})
@@ -37,6 +37,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <img src="https://s3.us-east-2.amazonaws.com/fec-hrr37-brian/gettyimages-527874823-1024x1024.jpg"></img>
         <MovieInfo />
         <MoviePoster />
       </div>
