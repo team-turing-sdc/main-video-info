@@ -1,4 +1,6 @@
 import React from 'react';
+import MovieInfo from './MovieInfo.jsx';
+import MoviePoster from './MoviePoster.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -7,7 +9,10 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>Hello World!!!!</div>
+      <div>
+        <MovieInfo />
+        <MoviePoster />
+      </div>
     )
   }
 }
