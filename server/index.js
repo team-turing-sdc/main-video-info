@@ -31,5 +31,12 @@ app.get('/movies/poster', (req, res) => {
   // create a db helper function
   console.log(req.body);
   let id = req.body.id;
-  res.send('test');
+  db.getMoviePoster(id, (err, results) => {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      console.log(results);
+      res.json(results);
+    }
+  })
 })

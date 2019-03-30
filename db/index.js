@@ -37,7 +37,7 @@ let getMovieInfo = (id, callback) => {
 let getMoviePoster = (id, callback) => {
   let query = Movie.find( {'id': id} );
   query
-    .select('image')
+    .select('info.image')
     .exec((err, result) => {
       if (err) {
         callback(err, null);
