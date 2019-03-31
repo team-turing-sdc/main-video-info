@@ -8,7 +8,7 @@ class App extends React.Component {
     this.state = {
       movieId: 1,
       poster: '',
-      movieInfo: []
+      movieInfo: null,
     };
   }
 
@@ -31,7 +31,7 @@ class App extends React.Component {
           }
         })
         this.setState({
-          poster: image
+          poster: image,
         });
       },
       error => {
@@ -47,7 +47,7 @@ class App extends React.Component {
       .then(
         result => {
           this.setState({
-            movieInfo: result
+            movieInfo: result,
           });
         },
         error => {
@@ -62,7 +62,7 @@ class App extends React.Component {
         <MovieInfo info={this.state.movieInfo}/>
         <MoviePoster poster={this.state.poster}/>
       </div>
-    )
+      )
   }
 }
 
