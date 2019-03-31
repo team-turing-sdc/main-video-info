@@ -22,7 +22,7 @@ app.get('/movies', (req, res) => {
     if (err) {
       res.sendStatus(500);
     } else {
-      res.json(results);
+      res.json(results[0]);
     }
   })
 });

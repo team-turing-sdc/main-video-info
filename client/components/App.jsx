@@ -59,7 +59,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <MovieInfo />
+        <MovieInfo info={this.state.movieInfo}/>
         <MoviePoster poster={this.state.poster}/>
       </div>
     )

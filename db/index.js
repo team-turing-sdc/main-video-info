@@ -24,7 +24,7 @@ let Movie = mongoose.model('Movie', movieInfoSchema);
 // db helper functions
 // grab all info related to movie except for poster
 let getMovieInfo = (id, callback) => {
-  let query = Movie.find({'id': id});
+  let query = Movie.find({'id': id}).select('name info');
   query.exec((err, result) => {
     if (err) {
       callback(err, null);
