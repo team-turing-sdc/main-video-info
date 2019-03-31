@@ -7,19 +7,22 @@ class App extends React.Component {
     super(props);
     this.state = {
       movieId: 1,
-      poster: ''
+      poster: '',
+      movieInfo: []
     };
   }
 
   // fetch movie poster on mount
   componentDidMount() {
-    this.getMoviePoster(this.state.movieId);
+    this.getMoviePoster();
+    this.getMovieInfo(this.state.movieId);
   }
-  getMoviePoster(id) {
+  // get poster image associated with selected movie
+  getMoviePoster() {
     fetch('/movies/poster')
-    .then(res => res.json())
-    .then(
-      result => {
+      .then(res => res.json())
+      .then(
+        result => {
         // grab correct poster
         let image;
         result.forEach(poster => {
@@ -32,11 +35,25 @@ class App extends React.Component {
         });
       },
       error => {
-        this.setState({
-          error
-        });
+        this.setState({error});
       }
     )
+  }
+
+  // get correct movie info
+  getMovieInfo(id) {
+    fetch(`/movies?movieID=${id}`)
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            movieInfo: result
+          });
+        },
+        error => {
+          this.setState({error});
+        }
+      )
   }
 
   render() {

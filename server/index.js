@@ -16,8 +16,8 @@ app.listen(PORT, () => {
 
 // get request example
 app.get('/movies', (req, res) => {
-  console.log(req.body);
-  let movieId = req.body.id;
+  console.log(req.query);
+  let movieId = req.query.movieID;
   db.getMovieInfo(movieId, (err, results) => {
     if (err) {
       res.sendStatus(500);
