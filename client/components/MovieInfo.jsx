@@ -1,9 +1,14 @@
 import React from 'react';
 
 const MovieInfo = (props) => {
-  // look into object destructuring
+  if (!props.info) {
+    return (<div></div>)
+  }
   return (
-    <div>Info</div>
+    <div>
+      {props.info.info.description}
+      {/* {props.info.info.description} */}
+    </div>
   );
 };
 
