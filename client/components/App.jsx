@@ -5,11 +5,11 @@ import MoviePoster from './MoviePoster.jsx';
 
 // styled components below
 const Container = styled.section`
-  background: #353535;
+  background: #4C4C4C;
   height: 80vh;
   width: 36vw;
 `;
-const PosterWrapper = styled.section`
+const PosterWrapper = styled.div`
   margin-top: 0;
   margin-left: 0;
 `;
@@ -18,7 +18,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieId: 98,
+      movieId: 42,
       poster: '',
       movieInfo: null,
     };
