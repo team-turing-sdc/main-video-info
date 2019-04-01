@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieId: 1,
+      movieId: 27,
       poster: '',
       movieInfo: null,
     };
