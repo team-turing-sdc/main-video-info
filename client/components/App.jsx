@@ -3,14 +3,15 @@ import styled from 'styled-components';
 import MovieInfo from './MovieInfo.jsx';
 import MoviePoster from './MoviePoster.jsx';
 
-
-
-
+// styled components below
 const Container = styled.section`
-  padding: 4em;
-  background: red;
+  background: #353535;
 `;
-
+const PosterWrapper = styled.section`
+  margin-top: 0;
+  margin-left: 0;
+  padding: 0;
+`;
 
 class App extends React.Component {
   constructor(props) {
@@ -61,8 +62,10 @@ class App extends React.Component {
   render() {
     return (
       <Container>
+        <PosterWrapper>
+          <MoviePoster poster={this.state.poster}/>
+        </PosterWrapper>
         <MovieInfo info={this.state.movieInfo}/>
-        <MoviePoster poster={this.state.poster}/>
       </Container>
       )
   }
