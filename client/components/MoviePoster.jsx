@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // styled components
 const PosterImage = styled.img`
   height: 40vh;
-  width: 21vw;
+  width: 18vw;
 `;
 
 

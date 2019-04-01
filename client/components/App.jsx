@@ -7,7 +7,7 @@ import MoviePoster from './MoviePoster.jsx';
 const Container = styled.section`
   background: #353535;
   height: 80vh;
-  width: 42vw;
+  width: 36vw;
 `;
 const PosterWrapper = styled.section`
   margin-top: 0;
@@ -18,7 +18,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieId: 1,
+      movieId: 98,
       poster: '',
       movieInfo: null,
     };
