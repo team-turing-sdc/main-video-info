@@ -1,6 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
 import MovieInfo from './MovieInfo.jsx';
 import MoviePoster from './MoviePoster.jsx';
+
+
+
+
+const Container = styled.section`
+  padding: 4em;
+  background: red;
+`;
+
 
 class App extends React.Component {
   constructor(props) {
@@ -32,7 +42,6 @@ class App extends React.Component {
       }
     )
   }
-
   // get correct movie info
   getMovieInfo(id) {
     fetch(`/movies?movieID=${id}`)
@@ -51,10 +60,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <MovieInfo info={this.state.movieInfo}/>
         <MoviePoster poster={this.state.poster}/>
-      </div>
+      </Container>
       )
   }
 }
