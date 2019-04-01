@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 // styled components
-
+const PosterImage = styled.img`
+  height: 40vh;
+  width: 21vw;
+`;
 
 
 const MoviePoster = ({ poster }) => {
   // look into object destructuring
   return (
     <div>
-      <img src={poster}/>
+      <PosterImage src={poster}/>
     </div>
   );
 };
