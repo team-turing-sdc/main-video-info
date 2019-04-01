@@ -6,8 +6,8 @@ const MovieInfo = (props) => {
   }
   return (
     <div>
+      {props.info.name}
       {props.info.info.description}
-      {/* {props.info.info.description} */}
     </div>
   );
 };

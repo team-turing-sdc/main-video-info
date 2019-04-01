@@ -14,24 +14,17 @@ class App extends React.Component {
 
   // fetch movie poster on mount
   componentDidMount() {
-    this.getMoviePoster();
+    this.getMoviePoster(this.state.movieId);
     this.getMovieInfo(this.state.movieId);
   }
   // get poster image associated with selected movie
-  getMoviePoster() {
-    fetch('/movies/poster')
+  getMoviePoster(id) {
+    fetch(`movies/poster?movieID=${id}`)
       .then(res => res.json())
       .then(
         result => {
-        // grab correct poster
-        let image;
-        result.forEach(poster => {
-          if (poster.id === this.state.movieId) {
-            image = poster.info.image;
-          }
-        })
         this.setState({
-          poster: image,
+          poster: result,
         });
       },
       error => {
