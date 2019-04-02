@@ -8,6 +8,9 @@ const Container = styled.section`
   background: #262626;
   height: 80vh;
   width: 36vw;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 47.5% 5% 47.5%;
 `;
 const PosterWrapper = styled.div`
   margin-top: 0;
@@ -66,7 +69,7 @@ class App extends React.Component {
         <PosterWrapper>
           <MoviePoster poster={this.state.poster}/>
         </PosterWrapper>
-        <span><MovieInfo info={this.state.movieInfo}/></span>
+        <MovieInfo info={this.state.movieInfo}/>
       </Container>
       )
   }

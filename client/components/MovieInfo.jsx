@@ -17,8 +17,6 @@ const InfoContainer = styled.ul`
   text-align: center;
   list-style-type: none;
   line-height: 1.4;
-  margin: 0;
-  padding: 15px 0;
 `;
 
 class MovieInfo extends React.Component {
