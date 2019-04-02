@@ -20,9 +20,10 @@ const InfoContainer = styled.ul`
   padding: 0;
 `;
 const StarRatingContainer = styled.div`
-  font-size: 2em;
+  font-size: 1.65em;
   grid-column: 2 / 3;
-  padding: 1em 0.5em;
+  text-align: center;
+  padding-top: 1.25em;
 `;
 
 class MovieInfo extends React.Component {

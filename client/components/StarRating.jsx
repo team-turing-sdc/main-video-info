@@ -5,8 +5,13 @@ const StarRating = ({ score }) => {
   // look into object destructuring
   return (
     <span>
-    &#9733;
+      <span>&#9733;</span>
+      <span>&#9733;</span>
+      <span>&#9733;</span>
+      <span>&#9733;</span>
+      <span>&#9733;</span>
     </span>
+
   );
 };
 
