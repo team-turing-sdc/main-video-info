@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Ratings from 'react-ratings-declarative';
+import StarRatingComponent from 'react-star-rating-component';
 // styled components below
 
 const ReleaseDate = styled.li`
@@ -19,11 +19,15 @@ const InfoContainer = styled.ul`
   line-height: 1.4;
   padding: 0;
 `;
+const StarRating = styled.div`
+
+`;
 
 class MovieInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+    };
   }
 
   formatRuntime(minutes) {
@@ -31,6 +35,10 @@ class MovieInfo extends React.Component {
     let mins = (minutes) - (60 * hours);
     let formattedTime = `${hours} hr ${mins} min`;
     return formattedTime;
+  }
+
+  handleStarRatingHover() {
+
   }
 
   render() {
@@ -52,15 +60,18 @@ class MovieInfo extends React.Component {
           <InfoList>
             {this.props.info.info.genre}
           </InfoList>
-
-          <Ratings rating={this.props.info.info.score} widgetRatedColors="#f15500">
-            <Ratings.Widget widgetHoverColor="black"/>
-            <Ratings.Widget />
-            <Ratings.Widget />
-            <Ratings.Widget />
-            <Ratings.Widget />
-          </Ratings>
+          {/* <Ratings rating={this.props.info.info.score}
+          widgetRatedColors="#f15500" widgetEmptyColors="#999999"  widgetDimensions="1.47em" widgetSpacings="0.15em" widgetHoverColors="black"> */}
         </InfoContainer>
+
+        {/* ratings */}
+        <StarRatingComponent
+          starCount={5}
+          value={this.props.info.info.score}
+          starColor="#f15500"
+          emptyStarColor="#999999"
+          onMouseOver={}
+        />
       </div>
     );
   }
