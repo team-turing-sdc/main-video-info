@@ -13,6 +13,11 @@ const InfoList = styled.li`
   font-style: italic;
   color: #CCC;
 `;
+const InfoContainer = styled.ul`
+  float: right;
+  text-align: center;
+  list-style-type: none;
+`;
 
 class MovieInfo extends React.Component {
   constructor(props) {
@@ -27,10 +32,10 @@ class MovieInfo extends React.Component {
     return (
 
       <div>
-        <ul>
+        <InfoContainer>
         <InfoList>Released</InfoList>
         <ReleaseDate >{this.props.info.info.releaseMonth.toUpperCase()} {this.props.info.info.releaseDay}, {this.props.info.info.releaseYear}</ReleaseDate>
-        </ul>
+        </InfoContainer>
       </div>
     );
   }
