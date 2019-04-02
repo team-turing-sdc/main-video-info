@@ -5,7 +5,7 @@ import MoviePoster from './MoviePoster.jsx';
 
 // styled components below
 const Container = styled.section`
-  background: #424242;
+  background: #262626;
   height: 80vh;
   width: 36vw;
 `;
