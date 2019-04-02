@@ -6,6 +6,12 @@ import styled from 'styled-components';
 const ReleaseDate = styled.li`
   font-family: Alternate Gothic No1 D;
   color: white;
+  font-size: 2em;
+`;
+const InfoList = styled.li`
+  font-family: "Times New Roman";
+  font-style: italic;
+  color: #CCC;
 `;
 
 class MovieInfo extends React.Component {
@@ -22,9 +28,8 @@ class MovieInfo extends React.Component {
 
       <div>
         <ul>
-        {this.props.info.name}
-        {this.props.info.info.rating}
-        <ReleaseDate >{this.props.info.info.releaseMonth} {this.props.info.info.releaseDay}, {this.props.info.info.releaseYear}</ReleaseDate>
+        <InfoList>Released</InfoList>
+        <ReleaseDate >{this.props.info.info.releaseMonth.toUpperCase()} {this.props.info.info.releaseDay}, {this.props.info.info.releaseYear}</ReleaseDate>
         </ul>
       </div>
     );
