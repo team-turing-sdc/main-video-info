@@ -1,12 +1,24 @@
 import React from 'react';
+import styled from 'styled-components';
 import MovieInfo from './MovieInfo.jsx';
 import MoviePoster from './MoviePoster.jsx';
+
+// styled components below
+const Container = styled.section`
+  background: #424242;
+  height: 80vh;
+  width: 36vw;
+`;
+const PosterWrapper = styled.div`
+  margin-top: 0;
+  margin-left: 0;
+`;
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieId: 1,
+      movieId: 42,
       poster: '',
       movieInfo: null,
     };
@@ -14,24 +26,17 @@ class App extends React.Component {
 
   // fetch movie poster on mount
   componentDidMount() {
-    this.getMoviePoster();
+    this.getMoviePoster(this.state.movieId);
     this.getMovieInfo(this.state.movieId);
   }
   // get poster image associated with selected movie
-  getMoviePoster() {
-    fetch('/movies/poster')
+  getMoviePoster(id) {
+    fetch(`movies/poster?movieID=${id}`)
       .then(res => res.json())
       .then(
         result => {
-        // grab correct poster
-        let image;
-        result.forEach(poster => {
-          if (poster.id === this.state.movieId) {
-            image = poster.info.image;
-          }
-        })
         this.setState({
-          poster: image,
+          poster: result,
         });
       },
       error => {
@@ -39,7 +44,6 @@ class App extends React.Component {
       }
     )
   }
-
   // get correct movie info
   getMovieInfo(id) {
     fetch(`/movies?movieID=${id}`)
@@ -58,10 +62,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container>
+        <PosterWrapper>
+          <MoviePoster poster={this.state.poster}/>
+        </PosterWrapper>
         <MovieInfo info={this.state.movieInfo}/>
-        <MoviePoster poster={this.state.poster}/>
-      </div>
+      </Container>
       )
   }
 }
