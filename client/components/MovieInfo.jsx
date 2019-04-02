@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import Ratings from 'react-ratings-declarative';
 // styled components below
 
 const ReleaseDate = styled.li`
@@ -42,9 +42,24 @@ class MovieInfo extends React.Component {
       <div>
         <InfoContainer>
           <InfoList>Released</InfoList>
+
           <ReleaseDate >{this.props.info.info.releaseMonth.toUpperCase()} {this.props.info.info.releaseDay}, {this.props.info.info.releaseYear}
           </ReleaseDate>
-          <InfoList>{this.props.info.info.rating}, {this.formatRuntime(this.props.info.info.runtime)}</InfoList>
+
+          <InfoList>{this.props.info.info.rating}, {this.formatRuntime(this.props.info.info.runtime)}
+          </InfoList>
+
+          <InfoList>
+            {this.props.info.info.genre}
+          </InfoList>
+
+          <Ratings rating={this.props.info.info.score} widgetRatedColors="#f15500">
+            <Ratings.Widget widgetHoverColor="black"/>
+            <Ratings.Widget />
+            <Ratings.Widget />
+            <Ratings.Widget />
+            <Ratings.Widget />
+          </Ratings>
         </InfoContainer>
       </div>
     );
