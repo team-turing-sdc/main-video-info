@@ -24,7 +24,7 @@ class MovieInfo extends React.Component {
         <ul>
         {this.props.info.name}
         {this.props.info.info.rating}
-        <ReleaseDate >{this.props.info.info.release}</ReleaseDate>
+        <ReleaseDate >{this.props.info.info.releaseMonth} {this.props.info.info.releaseDay}, {this.props.info.info.releaseYear}</ReleaseDate>
         </ul>
       </div>
     );
