@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const ReleaseDate = styled.li`
   font-family: Alternate Gothic No1 D;
   color: white;
-  font-size: 2em;
+  font-size: 2.15em;
 `;
 const InfoList = styled.li`
   font-family: "Times New Roman";
@@ -26,6 +26,13 @@ class MovieInfo extends React.Component {
     this.state = {};
   }
 
+  formatRuntime(minutes) {
+    let hours = Math.floor(minutes / 60);
+    let mins = (minutes) - (60 * hours);
+    let formattedTime = `${hours} hr ${mins} min`;
+    return formattedTime;
+  }
+
   render() {
     if (!this.props.info) {
       return (<div></div>)
@@ -34,8 +41,10 @@ class MovieInfo extends React.Component {
 
       <div>
         <InfoContainer>
-        <InfoList>Released</InfoList>
-        <ReleaseDate >{this.props.info.info.releaseMonth.toUpperCase()} {this.props.info.info.releaseDay}, {this.props.info.info.releaseYear}</ReleaseDate>
+          <InfoList>Released</InfoList>
+          <ReleaseDate >{this.props.info.info.releaseMonth.toUpperCase()} {this.props.info.info.releaseDay}, {this.props.info.info.releaseYear}
+          </ReleaseDate>
+          <InfoList>{this.props.info.info.rating}, {this.formatRuntime(this.props.info.info.runtime)}</InfoList>
         </InfoContainer>
       </div>
     );
