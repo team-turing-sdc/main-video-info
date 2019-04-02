@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import StarRatingComponent from 'react-star-rating-component';
+import StarRating from './StarRating.jsx'
 // styled components below
 
 const ReleaseDate = styled.li`
@@ -19,8 +19,10 @@ const InfoContainer = styled.ul`
   line-height: 1.4;
   padding: 0;
 `;
-const StarRating = styled.div`
-
+const StarRatingContainer = styled.div`
+  font-size: 2em;
+  grid-column: 2 / 3;
+  padding: 1em 0.5em;
 `;
 
 class MovieInfo extends React.Component {
@@ -35,10 +37,6 @@ class MovieInfo extends React.Component {
     let mins = (minutes) - (60 * hours);
     let formattedTime = `${hours} hr ${mins} min`;
     return formattedTime;
-  }
-
-  handleStarRatingHover() {
-
   }
 
   render() {
@@ -65,13 +63,9 @@ class MovieInfo extends React.Component {
         </InfoContainer>
 
         {/* ratings */}
-        <StarRatingComponent
-          starCount={5}
-          value={this.props.info.info.score}
-          starColor="#f15500"
-          emptyStarColor="#999999"
-          onMouseOver={}
-        />
+        <StarRatingContainer>
+          <StarRating score={this.props.info.info.score}/>
+        </StarRatingContainer>
       </div>
     );
   }
