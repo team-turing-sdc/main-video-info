@@ -66,7 +66,7 @@ class App extends React.Component {
         <PosterWrapper>
           <MoviePoster poster={this.state.poster}/>
         </PosterWrapper>
-        <MovieInfo info={this.state.movieInfo}/>
+        <span><MovieInfo info={this.state.movieInfo}/></span>
       </Container>
       )
   }
