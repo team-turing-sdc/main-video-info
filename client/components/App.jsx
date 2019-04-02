@@ -9,12 +9,16 @@ const Container = styled.section`
   height: 80vh;
   width: 36vw;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 50% 50%;
   grid-template-rows: 47.5% 5% 47.5%;
 `;
 const PosterWrapper = styled.div`
-  margin-top: 0;
-  margin-left: 0;
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+`;
+const MovieWrapper = styled.div`
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
 `;
 
 class App extends React.Component {
@@ -69,7 +73,9 @@ class App extends React.Component {
         <PosterWrapper>
           <MoviePoster poster={this.state.poster}/>
         </PosterWrapper>
-        <MovieInfo info={this.state.movieInfo}/>
+        <MovieWrapper>
+          <MovieInfo info={this.state.movieInfo}/>
+        </MovieWrapper>
       </Container>
       )
   }
