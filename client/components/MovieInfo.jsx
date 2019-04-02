@@ -8,19 +8,28 @@ const ReleaseDate = styled.li`
   color: white;
 `;
 
-const MovieInfo = (props) => {
-  if (!props.info) {
-    return (<div></div>)
+class MovieInfo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
-  return (
-    <div>
-      <ul>
-      {props.info.name}
-      {props.info.info.rating}
-      <ReleaseDate >{props.info.info.release}</ReleaseDate>
-      </ul>
-    </div>
-  );
+
+  render() {
+    if (!this.props.info) {
+      return (<div></div>)
+    }
+    return (
+
+      <div>
+        <ul>
+        {this.props.info.name}
+        {this.props.info.info.rating}
+        <ReleaseDate >{this.props.info.info.release}</ReleaseDate>
+        </ul>
+      </div>
+    );
+  }
+
 };
 
 export default MovieInfo;
