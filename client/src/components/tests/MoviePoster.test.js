@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import App from '../App.jsx';
+import MoviePoster from '../MoviePoster';
 import fetch from 'isomorphic-fetch';
 
 
-describe("App component", () => {
+describe("MoviePoster component", () => {
   it("should render", () => {
-    const wrapper = shallow(<App />);
+    const wrapper = shallow(<MoviePoster />);
 
     expect(wrapper.exists()).toBe(true);
   });
