@@ -8,6 +8,7 @@ import styled from 'styled-components';
 
 
 describe("MoviePoster component", () => {
+
   it("should render", () => {
     const wrapper = shallow(<MoviePoster />);
 
@@ -17,5 +18,14 @@ describe("MoviePoster component", () => {
   it('applies correct styles to div containing poster', () => {
     const tree = renderer.create(<PosterDiv />).toJSON()
     expect(tree).toHaveStyleRule('position', 'relative');
+    expect(tree).toHaveStyleRule('display', 'inline-block');
+    expect(tree).toHaveStyleRule('overflow', 'hidden');
+    expect(tree).toHaveStyleRule('vertical-align', 'top');
   });
+
+  it('should transition at a rate of 0.25s on hover', () => {
+    const tree = renderer.create(<PosterImage />).toJSON()
+    expect(tree).toHaveStyleRule('transition', 'opacity .25s,transform .25s ease');
+  });
+
 });

@@ -6,7 +6,7 @@ const PosterImage = styled.img`
   width: 18vw;
   opacity: 1;
   transition: opacity .25s, transform .25s ease;
-  ${PosterImage}:hover {
+  :hover {
     transform: scale(1.09);
     opacity: 0.7;
   }
