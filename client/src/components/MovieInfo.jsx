@@ -76,4 +76,10 @@ class MovieInfo extends React.Component {
 
 };
 
-export default MovieInfo;
+export {
+  MovieInfo,
+  ReleaseDate,
+  InfoList,
+  InfoContainer,
+  StarRatingContainer
+};

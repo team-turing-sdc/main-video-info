@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import MovieInfo from './MovieInfo.jsx';
+import {MovieInfo} from './MovieInfo.jsx';
 import {MoviePoster} from './MoviePoster.jsx';
 
 // styled components below
