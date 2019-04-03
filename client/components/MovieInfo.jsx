@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import StarRating from './StarRating.jsx'
+import StarRating from './StarRating.jsx';
+import FanRating from './FanRating.jsx';
 // styled components below
 
 const ReleaseDate = styled.li`
@@ -17,7 +18,7 @@ const InfoContainer = styled.ul`
   text-align: center;
   list-style-type: none;
   line-height: 1.4;
-  padding: 0;
+  padding: 0.75em 0 1em 0;
 `;
 const StarRatingContainer = styled.div`
   grid-column: 2 / 3;
@@ -66,6 +67,9 @@ class MovieInfo extends React.Component {
         <StarRatingContainer>
           <StarRating score={this.props.info.info.score}/>
         </StarRatingContainer>
+
+        <FanRating>
+        </FanRating>
       </div>
     );
   }
