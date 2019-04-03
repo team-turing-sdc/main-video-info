@@ -28,4 +28,8 @@ const MoviePoster = ({ poster }) => {
   );
 };
 
-export default MoviePoster;
+export {
+  MoviePoster,
+  PosterDiv,
+  PosterImage
+};

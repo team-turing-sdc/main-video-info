@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MovieInfo from './MovieInfo.jsx';
-import MoviePoster from './MoviePoster.jsx';
+import {MoviePoster} from './MoviePoster.jsx';
 
 // styled components below
 const Container = styled.section`
