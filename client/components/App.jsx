@@ -5,20 +5,27 @@ import MoviePoster from './MoviePoster.jsx';
 
 // styled components below
 const Container = styled.section`
-  background: #424242;
+  background: #262626;
   height: 80vh;
   width: 36vw;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 47.5% 5% 47.5%;
 `;
 const PosterWrapper = styled.div`
-  margin-top: 0;
-  margin-left: 0;
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+`;
+const MovieWrapper = styled.div`
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
 `;
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieId: 42,
+      movieId: 1,
       poster: '',
       movieInfo: null,
     };
@@ -66,7 +73,9 @@ class App extends React.Component {
         <PosterWrapper>
           <MoviePoster poster={this.state.poster}/>
         </PosterWrapper>
-        <MovieInfo info={this.state.movieInfo}/>
+        <MovieWrapper>
+          <MovieInfo info={this.state.movieInfo}/>
+        </MovieWrapper>
       </Container>
       )
   }
