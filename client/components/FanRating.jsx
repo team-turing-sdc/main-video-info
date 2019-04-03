@@ -9,13 +9,13 @@ const FanRatingWrapper = styled.div`
   padding-top: 0.5vh;
 `;
 
-const Icon = styled.img`
-  display: block;
+const ScoreContainer = styled.div`
+  display: grid;
+  grid-template-columns: 15% 35% 35% 15%;
+  grid-template-rows: 75% 25%;
   margin-top: 1em;
-  margin-left: auto;
-  margin-right: auto;
-  width 25%;
 `;
+
 
 const FanRating = (props) => {
   let percentageScore = Math.floor(Math.random() * 100);
@@ -23,14 +23,22 @@ const FanRating = (props) => {
     return (
       <div>
         <FanRatingWrapper>{Math.floor(Math.random() * 50000)} Fan Ratings</FanRatingWrapper>
-        <Icon src="https://img.icons8.com/color/48/000000/tomato.png"></Icon><span>{percentageScore}%</span>
+        <ScoreContainer>
+          <img src="https://img.icons8.com/color/48/000000/tomato.png"/>
+          <span>{percentageScore}%</span>
+        </ScoreContainer>
+
       </div>
     );
   } else {
     return (
       <div>
         <FanRatingWrapper>{Math.floor(Math.random() * 50000)} Fan Ratings</FanRatingWrapper>
-        <Icon src="https://img.icons8.com/color/48/000000/rotten-tomatoes.png"></Icon><span>{percentageScore}%</span>
+        <ScoreContainer>
+          <img src="https://img.icons8.com/color/48/000000/rotten-tomatoes.png"/>
+          <span>{percentageScore}%</span>
+        </ScoreContainer>
+
       </div>
     );
   }
