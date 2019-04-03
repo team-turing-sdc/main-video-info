@@ -3,14 +3,21 @@ import styled from 'styled-components'
 
 const Stars = styled.span`
   font-size: 1.55em;
+  ${Stars}:hover {
+    color: #bca201;
+  }
 `;
 const OrangeStar = styled.span`
   letter-spacing: 1px;
   color: #f15500;
+  :hover {
+    color: #bca201;
+  }
 `;
 const EmptyStar = styled.span`
   color: #999999;
 `;
+
 
 class StarRating extends React.Component {
   constructor(props) {
@@ -19,7 +26,6 @@ class StarRating extends React.Component {
       rating: this.props.score
     };
   }
-
   render() {
     if (this.state.rating === 5) {
       return (
@@ -29,6 +35,7 @@ class StarRating extends React.Component {
           <OrangeStar>&#9733;</OrangeStar>
           <OrangeStar>&#9733;</OrangeStar>
           <OrangeStar>&#9733;</OrangeStar>
+
         </Stars>
       )
     } else if (this.state.rating === 4) {
