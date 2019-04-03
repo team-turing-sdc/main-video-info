@@ -58,7 +58,7 @@ class StarRating extends React.Component {
           <EmptyStar>&#9733;</EmptyStar>
         </Stars>
       )
-    } else if (this.render.state.rating === 2) {
+    } else if (this.state.rating === 2) {
       return (
         <Stars>
           <OrangeStar>&#9733;</OrangeStar>
