@@ -20,7 +20,6 @@ const InfoContainer = styled.ul`
   padding: 0;
 `;
 const StarRatingContainer = styled.div`
-  font-size: 1.65em;
   grid-column: 2 / 3;
   text-align: center;
   padding-top: 1.25em;
