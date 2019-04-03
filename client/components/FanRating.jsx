@@ -10,12 +10,23 @@ const FanRatingWrapper = styled.div`
 `;
 
 const FanRating = (props) => {
-  // look into object destructuring
-  return (
-    <div>
-      <FanRatingWrapper>{Math.floor(Math.random() * 50000)} Fan Ratings</FanRatingWrapper>
-    </div>
-  );
+  let percentageScore = Math.floor(Math.random() * 100);
+  if (percentageScore >= 65) {
+    return (
+      <div>
+        <FanRatingWrapper>{Math.floor(Math.random() * 50000)} Fan Ratings</FanRatingWrapper>
+        <img src="https://img.icons8.com/color/48/000000/tomato.png"></img><span>{percentageScore}%</span>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <FanRatingWrapper>{Math.floor(Math.random() * 50000)} Fan Ratings</FanRatingWrapper>
+        <img src="https://img.icons8.com/color/48/000000/rotten-tomatoes.png"></img><span>{percentageScore}%</span>
+      </div>
+    );
+  }
+
 };
 
 export default FanRating;
