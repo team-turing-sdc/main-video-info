@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import MoviePoster from '../MoviePoster';
+import MovieInfo from '../MovieInfo';
 
 
-describe("MoviePoster component", () => {
+describe("MovieInfo component", () => {
   it("should render", () => {
-    const wrapper = shallow(<MoviePoster />);
+    const wrapper = shallow(<MovieInfo />);
 
     expect(wrapper.exists()).toBe(true);
   });
