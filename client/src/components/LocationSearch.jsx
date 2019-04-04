@@ -15,15 +15,24 @@ const Heading = styled.h3`
   color: inherit;
   line-height: 1;
   font-size: 2.15em;
+  font-family: Alternate Gothic No1 D;
+  vertical-align: middle;
+  letter-spacing: 1px;
+  font-weight: 400;
 `;
 
-const Message = styled.div`
+const Message = styled.p`
+  font-family: Proxima Nova;
+`;
+
+const MessageWrapper = styled.div`
   margin-bottom: 1vh;
   margin-top 0.5vh;
 `;
 
 const IconArrow = styled.span`
   color: white;
+  margin-right: 1vw;
 `;
 
 class LocationSearch extends React.Component {
@@ -34,14 +43,16 @@ class LocationSearch extends React.Component {
   render() {
     return (
       <LocationContainer>
-        <Message>
+        <MessageWrapper>
           <Heading>
             <IconArrow>
               <i class="fas fa-location-arrow"></i>
             </IconArrow>
             TELL US WHERE YOU ARE
           </Heading>
-        </Message>
+
+          <Message>Looking for movie tickets? Enter your location to see which movie theaters are playing this movie near you.</Message>
+        </MessageWrapper>
 
       </LocationContainer>
     )
