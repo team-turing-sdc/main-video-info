@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 // styled components
 const PosterImage = styled.img`
-  height: 38vh;
-  width: 18vw;
+  height: 99.75%;
+  width: 50%;
   opacity: 1;
   transition: opacity .25s, transform .25s ease;
   :hover {
@@ -17,6 +17,7 @@ const PosterDiv = styled.div`
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
+  height: 100%;
 `;
 
 
