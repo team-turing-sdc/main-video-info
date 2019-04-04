@@ -54,13 +54,15 @@ const Search = styled.input`
   font-size: 1.25em;
   font-family: "Times New Roman", Georgia, Serif;
   font-style: italic;
-  color: #black;
   text-align: left;
   background: rgba(235, 235, 235, .8);
   border-radius: 25px;
   box-shadow: inset 2px 3px 0 rgba(99, 99, 99, .5);
   :focus {
     background-color: #ebebeb;
+  }
+  ::placeholder {
+    color: #333;
   }
 `;
 
