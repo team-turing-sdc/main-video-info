@@ -36,6 +36,15 @@ const IconArrow = styled.span`
   font-size: 0.8em;
 `;
 
+const Directions = styled.span`
+  font-family: Proxima Nova;
+  display: block;
+  font-weight: 400;
+  margin-top: 2.5vh;
+  margin-bottom: 1vh;
+  font-size: 1.1em;
+`;
+
 class LocationSearch extends React.Component {
   constructor(props) {
     super(props);
@@ -54,6 +63,11 @@ class LocationSearch extends React.Component {
 
           <Message>Looking for movie tickets? Enter your location to see which movie theaters are playing {this.props.info.info.name} near you.</Message>
         </MessageWrapper>
+
+        <Directions>ENTER CITY, STATE OR ZIP CODE</Directions>
+
+        <input placeholder="City, State or Zip Code" type="text"></input>
+        <a href="#">GO</a>
 
       </LocationContainer>
     )
