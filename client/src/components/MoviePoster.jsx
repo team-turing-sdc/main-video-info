@@ -11,7 +11,7 @@ const PosterImage = styled.img`
     opacity: 0.7;
   }
 `;
-PosterImage.displayName = 'PosterImage';
+
 const PosterDiv = styled.div`
   position: relative;
   display: inline-block;

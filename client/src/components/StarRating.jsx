@@ -15,8 +15,6 @@ const OrangeStar = styled.span`
     color: #bca201;
   }
 `;
-// set display name for testing purposes
-OrangeStar.displayName = 'OrangeStar';
 
 const EmptyStar = styled.span`
   color: #999999;
