@@ -48,12 +48,20 @@ const Directions = styled.span`
 
 const Search = styled.input`
   height: 4.5vh;
-  width: 25vw;
+  width: 26vw;
   margin-top: 1vh;
+  padding: 0 0 0 1vw;
+  font-size: 1.25em;
+  font-family: "Times New Roman", Georgia, Serif;
+  font-style: italic;
+  color: #black;
   text-align: left;
   background: rgba(235, 235, 235, .8);
   border-radius: 25px;
-  color: #333;
+  box-shadow: inset 2px 3px 0 rgba(99, 99, 99, .5);
+  :focus {
+    background-color: #ebebeb;
+  }
 `;
 
 // REACT COMPONENT
