@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {MovieInfo} from './MovieInfo.jsx';
 import {MoviePoster} from './MoviePoster.jsx';
 import Options from './Options.jsx';
+import LocationSearch from './LocationSearch.jsx';
 
 // styled components below
 const Container = styled.section`
@@ -29,6 +30,7 @@ class App extends React.Component {
       movieId: 1,
       poster: '',
       movieInfo: null,
+      locationSearched: false
     };
   }
 
@@ -80,9 +82,10 @@ class App extends React.Component {
           <MovieInfo info={this.state.movieInfo}/>
         </MovieWrapper>
 
-        <Options>
+        <Options></Options>
 
-        </Options>
+        <LocationSearch></LocationSearch>
+
       </Container>
       )
   }
