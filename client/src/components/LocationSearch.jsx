@@ -51,7 +51,7 @@ class LocationSearch extends React.Component {
             TELL US WHERE YOU ARE
           </Heading>
 
-          <Message>Looking for movie tickets? Enter your location to see which movie theaters are playing this movie near you.</Message>
+          <Message>Looking for movie tickets? Enter your location to see which movie theaters are playing {this.props.info.info.name} near you.</Message>
         </MessageWrapper>
 
       </LocationContainer>

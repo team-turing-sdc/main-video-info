@@ -71,23 +71,30 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <Container>
+    if (this.state.movieInfo) {
+      return (
+        <Container>
 
-        <PosterWrapper>
-          <MoviePoster poster={this.state.poster}/>
-        </PosterWrapper>
+          <PosterWrapper>
+            <MoviePoster poster={this.state.poster}/>
+          </PosterWrapper>
 
-        <MovieWrapper>
-          <MovieInfo info={this.state.movieInfo}/>
-        </MovieWrapper>
+          <MovieWrapper>
+            <MovieInfo info={this.state.movieInfo}/>
+          </MovieWrapper>
 
-        <Options></Options>
+          <Options></Options>
 
-        <LocationSearch></LocationSearch>
+          <LocationSearch info={this.state.movieInfo}></LocationSearch>
 
-      </Container>
+        </Container>
+        )
+    } else {
+      return (
+        <div></div>
       )
+    }
+
   }
 }
 

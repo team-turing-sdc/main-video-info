@@ -41,9 +41,9 @@ class MovieInfo extends React.Component {
   }
 
   render() {
-    if (!this.props.info) {
-      return (<div></div>)
-    }
+    // if (!this.props.info) {
+    //   return (<div></div>)
+    // }
     return (
 
       <div>
