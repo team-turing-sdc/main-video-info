@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import {MovieInfo, InfoList, InfoContainer, StarRatingContainer, ReleaseDate} from '../MovieInfo';
-import FanRating from '../FanRating';
+;
 
 
 describe("MovieInfo component", () => {
@@ -20,5 +20,4 @@ describe("MovieInfo component", () => {
       );
     expect(wrapper.contains(<div/>)).toBe(true);
   });
-
 });

@@ -6,13 +6,14 @@ import 'jest-styled-components';
 import styled from 'styled-components';
 
 
-
 describe("MoviePoster component", () => {
 
-  it("should render", () => {
-    const wrapper = shallow(<MoviePoster />);
+  it("should render correctly", () => {
+    // const wrapper = shallow(<MoviePoster />);
 
-    expect(wrapper.exists()).toBe(true);
+    // expect(wrapper.exists()).toBe(true);
+    const tree = renderer.create(<MoviePoster></MoviePoster>).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   it('applies correct styles to div containing poster', () => {
@@ -26,6 +27,11 @@ describe("MoviePoster component", () => {
   it('should transition at a rate of 0.25s on hover', () => {
     const tree = renderer.create(<PosterImage />).toJSON()
     expect(tree).toHaveStyleRule('transition', 'opacity .25s,transform .25s ease');
+  });
+
+  it('should render a poster image', () => {
+    const wrapper = shallow(<PosterImage/>);
+    expect(wrapper.exists()).toBe(true);
   });
 
 });

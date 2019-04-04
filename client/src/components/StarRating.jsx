@@ -7,6 +7,7 @@ const Stars = styled.span`
     color: #bca201;
   }
 `;
+
 const OrangeStar = styled.span`
   letter-spacing: 1px;
   color: #f15500;
@@ -14,6 +15,9 @@ const OrangeStar = styled.span`
     color: #bca201;
   }
 `;
+// set display name for testing purposes
+OrangeStar.displayName = 'OrangeStar';
+
 const EmptyStar = styled.span`
   color: #999999;
 `;
@@ -94,3 +98,6 @@ class StarRating extends React.Component {
 }
 
 export default StarRating;
+export {
+  OrangeStar
+}

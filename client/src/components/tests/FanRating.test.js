@@ -4,6 +4,7 @@ import FanRating from '../FanRating';
 
 
 describe("FanRating component", () => {
+
   it("should render", () => {
     const wrapper = shallow(<FanRating />);
 

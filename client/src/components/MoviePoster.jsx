@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 // styled components
 const PosterImage = styled.img`
-  height: 40vh;
+  height: 38vh;
   width: 18vw;
   opacity: 1;
   transition: opacity .25s, transform .25s ease;
@@ -11,6 +11,7 @@ const PosterImage = styled.img`
     opacity: 0.7;
   }
 `;
+PosterImage.displayName = 'PosterImage';
 const PosterDiv = styled.div`
   position: relative;
   display: inline-block;

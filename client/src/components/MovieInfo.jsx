@@ -9,6 +9,7 @@ const ReleaseDate = styled.li`
   color: white;
   font-size: 2.15em;
 `;
+ReleaseDate.displayName = 'ReleaseDate';
 const InfoList = styled.li`
   font-family: "Times New Roman";
   font-style: italic;
