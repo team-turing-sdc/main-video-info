@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// STYLED COMPONENTS
 const LocationContainer = styled.div`
   grid-column: 1 / 3;
   color: #ccc;
@@ -45,6 +46,18 @@ const Directions = styled.span`
   font-size: 1.1em;
 `;
 
+const Search = styled.input`
+  height: 4.5vh;
+  width: 25vw;
+  margin-top: 1vh;
+  text-align: left;
+  background: rgba(235, 235, 235, .8);
+  border-radius: 25px;
+  color: #333;
+`;
+
+// REACT COMPONENT
+
 class LocationSearch extends React.Component {
   constructor(props) {
     super(props);
@@ -66,7 +79,7 @@ class LocationSearch extends React.Component {
 
         <Directions>ENTER CITY, STATE OR ZIP CODE</Directions>
 
-        <input placeholder="City, State or Zip Code" type="text"></input>
+        <Search placeholder="City, State or Zip Code" type="text"></Search>
         <a href="#">GO</a>
 
       </LocationContainer>
