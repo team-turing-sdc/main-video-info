@@ -6,7 +6,7 @@ const LocationContainer = styled.div`
   grid-column: 1 / 3;
   color: #ccc;
   background: rgba(51, 51, 51, .75);
-  padding: 0.5vh 2.25vw;;
+  padding: 0.5vh 2vw;;
   text-align: left;
   border: none;
 `;
@@ -66,6 +66,27 @@ const Search = styled.input`
   }
 `;
 
+const Button = styled.a`
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  background-color: #fe7900;
+  border-radius: 55%;
+  font-family: ProximaNovaW01-Bold;
+  font-style: italic;
+  font-size: 1.3em;
+  height: 4.75vh;
+  width: 3.5vw;
+  margin-left: 1vw;
+  line-height: 2.15em;
+  padding-right: 2px;
+  :hover {
+    transition: all .3s cubic-bezier(0, 0, .58, 1);
+    background-color: #f15500;
+  }
+`;
+
 // REACT COMPONENT
 
 class LocationSearch extends React.Component {
@@ -90,7 +111,7 @@ class LocationSearch extends React.Component {
         <Directions>ENTER CITY, STATE OR ZIP CODE</Directions>
 
         <Search placeholder="City, State or Zip Code" type="text"></Search>
-        <a href="#">GO</a>
+        <Button href="#">GO</Button>
 
       </LocationContainer>
     )
