@@ -7,6 +7,7 @@ const Stars = styled.span`
     color: #bca201;
   }
 `;
+
 const OrangeStar = styled.span`
   letter-spacing: 1px;
   color: #f15500;
@@ -14,6 +15,7 @@ const OrangeStar = styled.span`
     color: #bca201;
   }
 `;
+
 const EmptyStar = styled.span`
   color: #999999;
 `;
@@ -58,7 +60,7 @@ class StarRating extends React.Component {
           <EmptyStar>&#9733;</EmptyStar>
         </Stars>
       )
-    } else if (this.render.state.rating === 2) {
+    } else if (this.state.rating === 2) {
       return (
         <Stars>
           <OrangeStar>&#9733;</OrangeStar>
@@ -94,3 +96,6 @@ class StarRating extends React.Component {
 }
 
 export default StarRating;
+export {
+  OrangeStar
+}

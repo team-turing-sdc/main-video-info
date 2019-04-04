@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import MovieInfo from './MovieInfo.jsx';
-import MoviePoster from './MoviePoster.jsx';
+import {MovieInfo} from './MovieInfo.jsx';
+import {MoviePoster} from './MoviePoster.jsx';
+import Options from './Options.jsx';
 
 // styled components below
 const Container = styled.section`
@@ -14,7 +15,7 @@ const Container = styled.section`
 `;
 const PosterWrapper = styled.div`
   grid-column: 1 / 3;
-  grid-row: 1 / 3;
+  grid-row: 1 / 2;
 `;
 const MovieWrapper = styled.div`
   grid-column: 2 / 3;
@@ -70,12 +71,18 @@ class App extends React.Component {
   render() {
     return (
       <Container>
+
         <PosterWrapper>
           <MoviePoster poster={this.state.poster}/>
         </PosterWrapper>
+
         <MovieWrapper>
           <MovieInfo info={this.state.movieInfo}/>
         </MovieWrapper>
+
+        <Options>
+
+        </Options>
       </Container>
       )
   }

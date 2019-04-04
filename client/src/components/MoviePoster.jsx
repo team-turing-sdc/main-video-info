@@ -2,15 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 // styled components
 const PosterImage = styled.img`
-  height: 40vh;
+  height: 38vh;
   width: 18vw;
   opacity: 1;
   transition: opacity .25s, transform .25s ease;
-  ${PosterImage}:hover {
+  :hover {
     transform: scale(1.09);
     opacity: 0.7;
   }
 `;
+
 const PosterDiv = styled.div`
   position: relative;
   display: inline-block;
@@ -28,4 +29,8 @@ const MoviePoster = ({ poster }) => {
   );
 };
 
-export default MoviePoster;
+export {
+  MoviePoster,
+  PosterDiv,
+  PosterImage
+};
