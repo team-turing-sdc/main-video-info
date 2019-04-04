@@ -5,7 +5,7 @@ const LocationContainer = styled.div`
   grid-column: 1 / 3;
   color: #ccc;
   background: rgba(51, 51, 51, .75);
-  padding: 0.5vh 1.5vw;;
+  padding: 0.5vh 2.25vw;;
   text-align: left;
   border: none;
 `;
@@ -13,8 +13,8 @@ const LocationContainer = styled.div`
 const Heading = styled.h3`
   margin: 0;
   color: inherit;
-  line-height: 1;
-  font-size: 2.15em;
+  line-height: 1.5;
+  font-size: 2.45em;
   font-family: Alternate Gothic No1 D;
   vertical-align: middle;
   letter-spacing: 1px;
@@ -27,12 +27,13 @@ const Message = styled.p`
 
 const MessageWrapper = styled.div`
   margin-bottom: 1vh;
-  margin-top 0.5vh;
+  margin-top 1.75vh;
 `;
 
 const IconArrow = styled.span`
   color: white;
-  margin-right: 1vw;
+  margin-right: 1.4vw;
+  font-size: 0.8em;
 `;
 
 class LocationSearch extends React.Component {
