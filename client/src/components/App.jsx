@@ -4,11 +4,12 @@ import {MovieInfo} from './MovieInfo.jsx';
 import {MoviePoster} from './MoviePoster.jsx';
 import Options from './Options.jsx';
 import LocationSearch from './LocationSearch.jsx';
+import LocationShowTimes from './LocationShowtimes.jsx';
 
 // styled components below
 const Container = styled.section`
   background: #262626;
-  height: 80vh;
+  height: 75vh;
   width: 36vw;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -69,9 +70,15 @@ class App extends React.Component {
         }
       )
   }
+  // change state if search is activated
+  changeLocationSearchStatus() {
+    this.setState({
+      locationSearched: true
+    });
+  }
 
   render() {
-    if (this.state.movieInfo) {
+    if (this.state.movieInfo && !this.state.locationSearched) {
       return (
         <Container>
 
@@ -85,7 +92,25 @@ class App extends React.Component {
 
           <Options></Options>
 
-          <LocationSearch info={this.state.movieInfo}></LocationSearch>
+          <LocationSearch info={this.state.movieInfo} handleSearch={this.changeLocationSearchStatus.bind(this)}></LocationSearch>
+
+        </Container>
+        )
+    } else if (this.state.movieInfo && this.state.locationSearched) {
+      return (
+        <Container>
+
+          <PosterWrapper>
+            <MoviePoster poster={this.state.poster}/>
+          </PosterWrapper>
+
+          <MovieWrapper>
+            <MovieInfo info={this.state.movieInfo}/>
+          </MovieWrapper>
+
+          <Options></Options>
+
+          <LocationShowTimes></LocationShowTimes>
 
         </Container>
         )

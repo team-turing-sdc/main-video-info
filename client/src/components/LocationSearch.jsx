@@ -15,7 +15,7 @@ const Heading = styled.h3`
   margin: 0;
   color: inherit;
   line-height: 1.5;
-  font-size: 2.45em;
+  font-size: 2.85em;
   font-family: Alternate Gothic No1 D;
   vertical-align: middle;
   letter-spacing: 1px;
@@ -24,6 +24,7 @@ const Heading = styled.h3`
 
 const Message = styled.p`
   font-family: Proxima Nova;
+  font-size: 1.1em;
 `;
 
 const MessageWrapper = styled.div`
@@ -41,15 +42,15 @@ const Directions = styled.span`
   font-family: Proxima Nova;
   display: block;
   font-weight: 400;
-  margin-top: 2.5vh;
-  margin-bottom: 1vh;
-  font-size: 1.1em;
+  margin-top: 2.75vh;
+  margin-bottom: 1.25vh;
+  font-size: 1.2em;
 `;
 
 const Search = styled.input`
   height: 4.5vh;
   width: 26vw;
-  margin-top: 1vh;
+  margin-top: 1.3vh;
   padding: 0 0 0 1vw;
   font-size: 1.25em;
   font-family: "Times New Roman", Georgia, Serif;
@@ -111,7 +112,7 @@ class LocationSearch extends React.Component {
         <Directions>ENTER CITY, STATE OR ZIP CODE</Directions>
 
         <Search placeholder="City, State or Zip Code" type="text"></Search>
-        <Button href="#">GO</Button>
+        <Button href="#" onClick={() => this.props.handleSearch()}>GO</Button>
 
       </LocationContainer>
     )
