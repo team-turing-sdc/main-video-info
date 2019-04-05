@@ -80,26 +80,41 @@ class App extends React.Component {
     });
     this.getLocation();
   }
-
+  // grab location of user
   getLocation() {
     console.log('getting location');
+    let correctThis = this;
     let latitude;
     let longitude;
     navigator.geolocation.getCurrentPosition(
       function(position) {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
-        console.log(latitude, longitude);
+        correctThis.getShowtimeData(latitude, longitude);
       },
       function() {
         console.log('error');
       }
-    );
-    this.getShowtimeData(latitude, longitude);
-  }
+    )
 
+  }
+  // get showtime info based on user location
   getShowtimeData(lat, long) {
-    fetch('https://api-gate2.movieglu.com/filmsNowShowing/?n=5', {
+    // hardcode id for now, maybe change later
+    let filmID = 197404;
+    // get current date in proper format for API
+    let date = new Date();
+    let month = date.getUTCMonth() + 1;
+    month < 10 ? month = `0${month}` : null;
+    let day = date.getUTCDate();
+    day < 10 ? day = `0${day}` : null;
+    let year = date.getUTCFullYear();
+    console.log(`${year}-${month}-${day}`);
+    // get date and time in proper format for headers
+    let dateAndTime = date.toISOString();
+    console.log(dateAndTime);
+    console.log(lat, long)
+    fetch(`https://api-gate2.movieglu.com/filmShowTimes/?film_id=${filmID}&date=${year}-${month}-${day}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -108,7 +123,7 @@ class App extends React.Component {
             'authorization': 'Basic UEVSU18yNTpQQVlobHhhT0RjcE4=',
             'api-version': 'v200',
             'territory': 'US',
-            'device-datetime': '2019-04-05T02:04:08.817Z',
+            'device-datetime': `${dateAndTime}`,
             'geolocation': `${lat};${long}`
           }
         })
