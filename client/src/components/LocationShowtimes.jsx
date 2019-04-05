@@ -15,6 +15,7 @@ const ShowtimeContainer = styled.div`
 const Heading = styled.h3`
   display: inline-block;
   margin-top: 0.5vh;
+  margin-bottom: 1vh;
   color: white;
   font-family: Alternate Gothic No1 D;
   font-size: 2.85em;

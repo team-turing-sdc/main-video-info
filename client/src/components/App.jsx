@@ -101,7 +101,7 @@ class App extends React.Component {
   // get showtime info based on user location
   getShowtimeData(lat, long) {
     // hardcode id for now, maybe change later
-    let filmID = 197404;
+    let filmID = 272263;
     // get current date in proper format for API
     let date = new Date();
     let month = date.getUTCMonth() + 1;
