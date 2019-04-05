@@ -33,7 +33,7 @@ class App extends React.Component {
       poster: '',
       movieInfo: null,
       locationSearched: false,
-      showtimeInfo: []
+      showtimeInfo: null
     };
   }
 
@@ -114,6 +114,7 @@ class App extends React.Component {
     let dateAndTime = date.toISOString();
     console.log(dateAndTime);
     console.log(lat, long)
+    // using movieglu api, fetch showtimes and cinemas
     fetch(`https://api-gate2.movieglu.com/filmShowTimes/?film_id=${filmID}&date=${year}-${month}-${day}`, {
           method: 'GET',
           headers: {
@@ -162,7 +163,7 @@ class App extends React.Component {
 
         </Container>
         )
-    } else if (this.state.movieInfo && this.state.locationSearched) {
+    } else if (this.state.movieInfo && this.state.locationSearched && this.state.showtimeInfo) {
       return (
         <Container>
 
@@ -176,7 +177,7 @@ class App extends React.Component {
 
           <Options></Options>
 
-          <LocationShowTimes></LocationShowTimes>
+          <LocationShowTimes showInfo={this.state.showtimeInfo}></LocationShowTimes>
 
         </Container>
         )
