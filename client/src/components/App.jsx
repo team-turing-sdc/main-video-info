@@ -31,7 +31,8 @@ class App extends React.Component {
       movieId: 1,
       poster: '',
       movieInfo: null,
-      locationSearched: false
+      locationSearched: false,
+      showtimeInfo: []
     };
   }
 
@@ -40,6 +41,7 @@ class App extends React.Component {
     this.getMoviePoster(this.state.movieId);
     this.getMovieInfo(this.state.movieId);
   }
+
   // get poster image associated with selected movie
   getMoviePoster(id) {
     fetch(`movies/poster?movieID=${id}`)
@@ -75,6 +77,54 @@ class App extends React.Component {
     this.setState({
       locationSearched: true
     });
+    this.getLocation();
+  }
+
+  getLocation() {
+    console.log('getting location');
+    let latitude;
+    let longitude;
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        console.log(latitude, longitude);
+      },
+      function() {
+        console.log('error');
+      }
+    );
+    this.getShowtimeData(latitude, longitude);
+  }
+
+  getShowtimeData(lat, long) {
+    fetch('https://api-gate2.movieglu.com/filmsNowShowing/?n=5', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'client': 'PERS_25',
+            'x-api-key': 'mgISY6IvC42LS6RSjGp8y4OIzdXOxKT84tjo92Vu',
+            'authorization': 'Basic UEVSU18yNTpQQVlobHhhT0RjcE4=',
+            'api-version': 'v200',
+            'territory': 'US',
+            'device-datetime': '2019-04-05T02:04:08.817Z',
+            'geolocation': `${lat};${long}`
+          }
+        })
+          .then(res => res.json())
+          .then(
+            result => {
+              console.log(result);
+              this.setState({
+                showtimeInfo: result
+              })
+            },
+            error => {
+              this.setState({
+                showtimeInfo: error
+              });
+            }
+          )
   }
 
   render() {
