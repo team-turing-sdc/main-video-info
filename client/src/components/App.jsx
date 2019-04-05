@@ -5,7 +5,7 @@ import {MoviePoster} from './MoviePoster.jsx';
 import Options from './Options.jsx';
 import LocationSearch from './LocationSearch.jsx';
 import LocationShowTimes from './LocationShowtimes.jsx';
-
+// test
 // styled components below
 const Container = styled.section`
   background: #262626;
@@ -103,7 +103,7 @@ class App extends React.Component {
           headers: {
             'Content-Type': 'application/json',
             'client': 'PERS_25',
-            'x-api-key': 'mgISY6IvC42LS6RSjGp8y4OIzdXOxKT84tjo92Vu',
+            'x-api-key': '',
             'authorization': 'Basic UEVSU18yNTpQQVlobHhhT0RjcE4=',
             'api-version': 'v200',
             'territory': 'US',
