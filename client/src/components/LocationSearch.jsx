@@ -101,7 +101,7 @@ class LocationSearch extends React.Component {
         <MessageWrapper>
           <Heading>
             <IconArrow>
-              <i class="fas fa-location-arrow"></i>
+              <i className="fas fa-location-arrow"></i>
             </IconArrow>
             TELL US WHERE YOU ARE
           </Heading>

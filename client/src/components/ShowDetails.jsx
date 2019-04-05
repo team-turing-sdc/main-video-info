@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
+const TheaterName = styled.a`
+  
+`;
 const ShowDetails = (props) => {
   // look into object destructuring
   return (
     <div>
-      {props.cinema.cinema_name}
+      <a href="#">{props.cinema.cinema_name}</a>
     </div>
   );
 };
