@@ -5,6 +5,7 @@ import {MoviePoster} from './MoviePoster.jsx';
 import Options from './Options.jsx';
 import LocationSearch from './LocationSearch.jsx';
 import LocationShowTimes from './LocationShowtimes.jsx';
+import API_KEY from '../../key';
 // test
 // styled components below
 const Container = styled.section`
@@ -103,7 +104,7 @@ class App extends React.Component {
           headers: {
             'Content-Type': 'application/json',
             'client': 'PERS_25',
-            'x-api-key': '',
+            'x-api-key': `${API_KEY}`,
             'authorization': 'Basic UEVSU18yNTpQQVlobHhhT0RjcE4=',
             'api-version': 'v200',
             'territory': 'US',
