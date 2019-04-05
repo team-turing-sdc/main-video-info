@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import {MovieInfo} from './MovieInfo.jsx';
 import {MoviePoster} from './MoviePoster.jsx';
 import Options from './Options.jsx';
+import LocationSearch from './LocationSearch.jsx';
+import LocationShowTimes from './LocationShowtimes.jsx';
 
 // styled components below
 const Container = styled.section`
   background: #262626;
-  height: 80vh;
+  height: 75vh;
   width: 36vw;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -29,6 +31,8 @@ class App extends React.Component {
       movieId: 1,
       poster: '',
       movieInfo: null,
+      locationSearched: false,
+      showtimeInfo: []
     };
   }
 
@@ -37,6 +41,7 @@ class App extends React.Component {
     this.getMoviePoster(this.state.movieId);
     this.getMovieInfo(this.state.movieId);
   }
+
   // get poster image associated with selected movie
   getMoviePoster(id) {
     fetch(`movies/poster?movieID=${id}`)
@@ -67,24 +72,104 @@ class App extends React.Component {
         }
       )
   }
+  // change state if search is activated
+  changeLocationSearchStatus() {
+    this.setState({
+      locationSearched: true
+    });
+    this.getLocation();
+  }
+
+  getLocation() {
+    console.log('getting location');
+    let latitude;
+    let longitude;
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        console.log(latitude, longitude);
+      },
+      function() {
+        console.log('error');
+      }
+    );
+    this.getShowtimeData(latitude, longitude);
+  }
+
+  getShowtimeData(lat, long) {
+    fetch('https://api-gate2.movieglu.com/filmsNowShowing/?n=5', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'client': 'PERS_25',
+            'x-api-key': 'mgISY6IvC42LS6RSjGp8y4OIzdXOxKT84tjo92Vu',
+            'authorization': 'Basic UEVSU18yNTpQQVlobHhhT0RjcE4=',
+            'api-version': 'v200',
+            'territory': 'US',
+            'device-datetime': '2019-04-05T02:04:08.817Z',
+            'geolocation': `${lat};${long}`
+          }
+        })
+          .then(res => res.json())
+          .then(
+            result => {
+              console.log(result);
+              this.setState({
+                showtimeInfo: result
+              })
+            },
+            error => {
+              this.setState({
+                showtimeInfo: error
+              });
+            }
+          )
+  }
 
   render() {
-    return (
-      <Container>
+    if (this.state.movieInfo && !this.state.locationSearched) {
+      return (
+        <Container>
 
-        <PosterWrapper>
-          <MoviePoster poster={this.state.poster}/>
-        </PosterWrapper>
+          <PosterWrapper>
+            <MoviePoster poster={this.state.poster}/>
+          </PosterWrapper>
 
-        <MovieWrapper>
-          <MovieInfo info={this.state.movieInfo}/>
-        </MovieWrapper>
+          <MovieWrapper>
+            <MovieInfo info={this.state.movieInfo}/>
+          </MovieWrapper>
 
-        <Options>
+          <Options></Options>
 
-        </Options>
-      </Container>
+          <LocationSearch info={this.state.movieInfo} handleSearch={this.changeLocationSearchStatus.bind(this)}></LocationSearch>
+
+        </Container>
+        )
+    } else if (this.state.movieInfo && this.state.locationSearched) {
+      return (
+        <Container>
+
+          <PosterWrapper>
+            <MoviePoster poster={this.state.poster}/>
+          </PosterWrapper>
+
+          <MovieWrapper>
+            <MovieInfo info={this.state.movieInfo}/>
+          </MovieWrapper>
+
+          <Options></Options>
+
+          <LocationShowTimes></LocationShowTimes>
+
+        </Container>
+        )
+    } else {
+      return (
+        <div></div>
       )
+    }
+
   }
 }
 

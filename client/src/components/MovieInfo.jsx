@@ -18,12 +18,12 @@ const InfoContainer = styled.ul`
   text-align: center;
   list-style-type: none;
   line-height: 1.4;
-  padding: 0.75em 0 1em 0;
+  padding: 0.75em 0 0.8em 0;
 `;
 const StarRatingContainer = styled.div`
   grid-column: 2 / 3;
   text-align: center;
-  padding-top: 1.25em;
+  padding-top: 0.35em;
 `;
 
 class MovieInfo extends React.Component {
@@ -41,9 +41,9 @@ class MovieInfo extends React.Component {
   }
 
   render() {
-    if (!this.props.info) {
-      return (<div></div>)
-    }
+    // if (!this.props.info) {
+    //   return (<div></div>)
+    // }
     return (
 
       <div>
