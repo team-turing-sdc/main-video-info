@@ -9,9 +9,11 @@ const ShowtimeButton = styled.a`
   border-radius 5px;
   color: white;
   text-align: center;
-  font-family: Proxima Nova, Helvetica;
-  width: 4vw;
+  font-family: ProximaNovaW01-Bold, Helvetica;
+  height: 50px;
+  width: 70px;
   margin-right: 0.75vw;
+  line-height: 2.90em;
 `;
 
 // REACT COMPONENTS
@@ -21,13 +23,13 @@ const Showtimes = (props) => {
   if (Number(time[0] + time[1]) > 12) {
     let firstTwo = Number(time[0] + time[1]) - 12;
     let lastTwo = time[3] + time[4];
-    var convertedTime = `${firstTwo.toString()}:${lastTwo}`;
+    var convertedTime = `${firstTwo.toString()}:${lastTwo}p`;
   }
 
   return (
     <span>
       <ShowtimeButton>
-        {convertedTime ? convertedTime : time}
+        {convertedTime ? convertedTime : time + 'p'}
       </ShowtimeButton>
     </span>
   );

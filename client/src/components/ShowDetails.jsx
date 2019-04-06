@@ -32,6 +32,15 @@ const ShowDetails = (props) => {
     <div>
       <TheaterName href="#">{props.cinema.cinema_name}</TheaterName>
       <Subheading>Movie Times for {`${dayOfWeek}, ${month} ${day}, ${year}`}</Subheading>
+      {/* Seating Amenities */}
+      {/* hard coded since info is not available in API used */}
+      <ul>
+        <li>Closed caption</li>
+        <li>Accessibility devices available</li>
+        <li>Recliner Seats</li>
+        <li>Reeserved seating</li>
+      </ul>
+
       {/* showtime buttons */}
       {
         props.cinema.showings.Standard.times.map((showing, i) => {
