@@ -147,6 +147,7 @@ class App extends React.Component {
       display: grid;
       grid-template-columns: 50% 50%;
       grid-template-rows: 47.5% 5% 47.5%;
+      clear: both;
    `;
     if (this.state.movieInfo && !this.state.locationSearched) {
       return (
