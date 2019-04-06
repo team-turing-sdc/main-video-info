@@ -25,13 +25,16 @@ const Nav = styled.ul`
 const NavItem = styled.li`
   float: left;
   color: white;
+  margin-right: 1.5vw;
+  font-size: 1.5em;
+  font-family: ProximaNovaW01-Bold, Helvetica;
 `;
 
 const MovieNavbar = (props) => {
 
   return (
     <NavWrapper>
-      <MovieTitle>{props.movie.info.name} ({props.movie.info.releaseYear})</MovieTitle>
+      <MovieTitle>{props.movie.info.name} ({props.movie.info.releaseYear})  <i class="far fa-heart"></i></MovieTitle>
       <Nav>
         <NavItem>Overview</NavItem>
         <NavItem>Movie Times + Tickets</NavItem>

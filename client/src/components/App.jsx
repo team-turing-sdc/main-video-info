@@ -173,7 +173,7 @@ class App extends React.Component {
     } else if (this.state.movieInfo && this.state.locationSearched && this.state.showtimeInfo) {
       return (
         <div>
-          <MovieNavbar></MovieNavbar>
+          <MovieNavbar movie={this.state.movieInfo}></MovieNavbar>
           <Container>
 
             <PosterWrapper>
