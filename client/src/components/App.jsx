@@ -22,7 +22,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieId: 12,
+      movieId: 1,
       poster: '',
       movieInfo: null,
       locationSearched: false,
