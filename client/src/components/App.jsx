@@ -5,6 +5,7 @@ import {MoviePoster} from './MoviePoster.jsx';
 import Options from './Options.jsx';
 import LocationSearch from './LocationSearch.jsx';
 import LocationShowTimes from './LocationShowtimes.jsx';
+import MovieNavbar from './MovieNavbar.jsx';
 import API_KEY from '../../key';
 // test
 // styled components below
@@ -21,7 +22,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieId: 1,
+      movieId: 12,
       poster: '',
       movieInfo: null,
       locationSearched: false,
@@ -149,6 +150,8 @@ class App extends React.Component {
    `;
     if (this.state.movieInfo && !this.state.locationSearched) {
       return (
+        // nav bar
+        <MovieNavbar />
         <Container>
 
           <PosterWrapper>
@@ -167,6 +170,7 @@ class App extends React.Component {
         )
     } else if (this.state.movieInfo && this.state.locationSearched && this.state.showtimeInfo) {
       return (
+        // nav bar
         <Container>
 
           <PosterWrapper>
