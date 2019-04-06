@@ -141,7 +141,7 @@ class App extends React.Component {
     // if 'GO' clicked: make container slightly bigger
     const Container = styled.section`
       background: #262626;
-      height: ${this.state.locationSearched ? '80vh' : '75vh'};
+      height: ${this.state.locationSearched ? '82vh' : '75vh'};
       width: ${this.state.locationSearched ? '37vw' : '36vw'};
       display: grid;
       grid-template-columns: 50% 50%;

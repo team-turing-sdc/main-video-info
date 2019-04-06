@@ -14,6 +14,10 @@ const ShowtimeButton = styled.a`
   width: 70px;
   margin-right: 0.75vw;
   line-height: 2.90em;
+  :hover {
+    transition: .3 ease;
+    background: #fe7900;
+  }
 `;
 
 // REACT COMPONENTS

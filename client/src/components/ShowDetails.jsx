@@ -34,6 +34,21 @@ const AmenitiesItem = styled.li`
   line-height: 1.6;
 `;
 
+const SeeAll = styled.a`
+  display: block;
+  margin-top: 1.75vh;
+  margin-bottom: 1.75vh;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: ProximaNovaW01-Bold, Helvetica;
+  font-size: 1.15em;
+  color: #4AA7F6;
+  :hover {
+    color: #2d77ef;
+    transition: .3s linear;
+  }
+`;
+
 const ShowDetails = (props) => {
   // generate date in proper format
   let currentDate = new Date();
@@ -60,6 +75,9 @@ const ShowDetails = (props) => {
           return <Showtimes key={i} showing={showing}/>
         })
       }
+
+      {/* SEE ALL LINK */}
+      <SeeAll href="#">see all theaters + movie times</SeeAll>
 
     </div>
   );
