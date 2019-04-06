@@ -5,17 +5,10 @@ import {MoviePoster} from './MoviePoster.jsx';
 import Options from './Options.jsx';
 import LocationSearch from './LocationSearch.jsx';
 import LocationShowTimes from './LocationShowtimes.jsx';
+import MovieNavbar from './MovieNavbar.jsx';
 import API_KEY from '../../key';
 // test
 // styled components below
-const Container = styled.section`
-  background: #262626;
-  height: 75vh;
-  width: 36vw;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 47.5% 5% 47.5%;
-`;
 const PosterWrapper = styled.div`
   grid-column: 1 / 3;
   grid-row: 1 / 2;
@@ -29,7 +22,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieId: 1,
+      movieId: 12,
       poster: '',
       movieInfo: null,
       locationSearched: false,
@@ -119,9 +112,9 @@ class App extends React.Component {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'client': 'PERS_25',
+            'client': 'FAC',
             'x-api-key': `${API_KEY}`,
-            'authorization': 'Basic UEVSU18yNTpQQVlobHhhT0RjcE4=',
+            'authorization': 'Basic RkFDOkFKc2ZIa1dZM0dCZA==',
             'api-version': 'v200',
             'territory': 'US',
             'device-datetime': `${dateAndTime}`,
@@ -145,8 +138,20 @@ class App extends React.Component {
   }
 
   render() {
+    // move App container component here to utilize state
+    // if 'GO' clicked: make container slightly bigger
+    const Container = styled.section`
+      background: #262626;
+      height: ${this.state.locationSearched ? '82vh' : '75vh'};
+      width: ${this.state.locationSearched ? '37vw' : '36vw'};
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 47.5% 5% 47.5%;
+   `;
     if (this.state.movieInfo && !this.state.locationSearched) {
       return (
+        // nav bar
+        <MovieNavbar />
         <Container>
 
           <PosterWrapper>
@@ -165,6 +170,7 @@ class App extends React.Component {
         )
     } else if (this.state.movieInfo && this.state.locationSearched && this.state.showtimeInfo) {
       return (
+        // nav bar
         <Container>
 
           <PosterWrapper>
