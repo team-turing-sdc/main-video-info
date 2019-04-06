@@ -19,8 +19,21 @@ const Subheading = styled.div`
   color: #ccc;
   font-family: Proxima Nova, Helvetica;
   font-size: 1em;
-
 `;
+
+const SeatingAmenitiesList = styled.ul`
+  font-family: Proxima Nova, Helvetica;
+  margin-top: 1.5vh;
+  margin-bottom: .75vh;
+  padding: inherit;
+`;
+
+const AmenitiesItem = styled.li`
+  display: inline-block;
+  margin-right: 5px;
+  line-height: 1.6;
+`;
+
 const ShowDetails = (props) => {
   // generate date in proper format
   let currentDate = new Date();
@@ -34,12 +47,12 @@ const ShowDetails = (props) => {
       <Subheading>Movie Times for {`${dayOfWeek}, ${month} ${day}, ${year}`}</Subheading>
       {/* Seating Amenities */}
       {/* hard coded since info is not available in API used */}
-      <ul>
-        <li>Closed caption</li>
-        <li>Accessibility devices available</li>
-        <li>Recliner Seats</li>
-        <li>Reeserved seating</li>
-      </ul>
+      <SeatingAmenitiesList>
+        <AmenitiesItem>Closed caption  &#8226;</AmenitiesItem>
+        <AmenitiesItem>Accessibility devices available  &#8226;</AmenitiesItem>
+        <AmenitiesItem>Recliner Seats  &#8226;</AmenitiesItem>
+        <AmenitiesItem><i className="fas fa-chair"></i> Reserved seating</AmenitiesItem>
+      </SeatingAmenitiesList>
 
       {/* showtime buttons */}
       {

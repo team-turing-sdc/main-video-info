@@ -8,14 +8,6 @@ import LocationShowTimes from './LocationShowtimes.jsx';
 import API_KEY from '../../key';
 // test
 // styled components below
-const Container = styled.section`
-  background: #262626;
-  height: 75vh;
-  width: 36vw;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 47.5% 5% 47.5%;
-`;
 const PosterWrapper = styled.div`
   grid-column: 1 / 3;
   grid-row: 1 / 2;
@@ -145,6 +137,16 @@ class App extends React.Component {
   }
 
   render() {
+    // move App container component here to utilize state
+    // if 'GO' clicked: make container slightly bigger
+    const Container = styled.section`
+      background: #262626;
+      height: ${this.state.locationSearched ? '80vh' : '75vh'};
+      width: ${this.state.locationSearched ? '37vw' : '36vw'};
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 47.5% 5% 47.5%;
+   `;
     if (this.state.movieInfo && !this.state.locationSearched) {
       return (
         <Container>
