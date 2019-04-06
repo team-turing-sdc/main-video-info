@@ -53,7 +53,7 @@ const ShowDetails = (props) => {
   // generate date in proper format
   let currentDate = new Date();
   let month = currentDate.toLocaleString('en-us', { month: 'long'});
-  let day = currentDate.getUTCDate() - 1;
+  let day = currentDate.getUTCDate();
   let dayOfWeek = currentDate.toLocaleString('en-us', { weekday: 'long' });
   let year = currentDate.getUTCFullYear();
   return (

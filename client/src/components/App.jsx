@@ -150,42 +150,46 @@ class App extends React.Component {
    `;
     if (this.state.movieInfo && !this.state.locationSearched) {
       return (
-        // nav bar
-        <MovieNavbar />
-        <Container>
+        <div>
+          <MovieNavbar movie={this.state.movieInfo}></MovieNavbar>
+          <Container>
 
-          <PosterWrapper>
-            <MoviePoster poster={this.state.poster}/>
-          </PosterWrapper>
+            <PosterWrapper>
+              <MoviePoster poster={this.state.poster}/>
+            </PosterWrapper>
 
-          <MovieWrapper>
-            <MovieInfo info={this.state.movieInfo}/>
-          </MovieWrapper>
+            <MovieWrapper>
+              <MovieInfo info={this.state.movieInfo}/>
+            </MovieWrapper>
 
-          <Options></Options>
+            <Options></Options>
 
-          <LocationSearch info={this.state.movieInfo} handleSearch={this.changeLocationSearchStatus.bind(this)}></LocationSearch>
+            <LocationSearch info={this.state.movieInfo} handleSearch={this.changeLocationSearchStatus.bind(this)}></LocationSearch>
 
         </Container>
+        </div>
         )
     } else if (this.state.movieInfo && this.state.locationSearched && this.state.showtimeInfo) {
       return (
-        // nav bar
-        <Container>
+        <div>
+          <MovieNavbar></MovieNavbar>
+          <Container>
 
-          <PosterWrapper>
-            <MoviePoster poster={this.state.poster}/>
-          </PosterWrapper>
+            <PosterWrapper>
+              <MoviePoster poster={this.state.poster}/>
+            </PosterWrapper>
 
-          <MovieWrapper>
-            <MovieInfo info={this.state.movieInfo}/>
-          </MovieWrapper>
+            <MovieWrapper>
+              <MovieInfo info={this.state.movieInfo}/>
+            </MovieWrapper>
 
-          <Options></Options>
+            <Options></Options>
 
-          <LocationShowTimes showInfo={this.state.showtimeInfo}></LocationShowTimes>
+            <LocationShowTimes showInfo={this.state.showtimeInfo}></LocationShowTimes>
 
-        </Container>
+          </Container>
+        </div>
+
         )
     } else {
       return (
