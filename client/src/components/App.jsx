@@ -119,9 +119,9 @@ class App extends React.Component {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'client': 'PERS_25',
+            'client': 'FAC',
             'x-api-key': `${API_KEY}`,
-            'authorization': 'Basic UEVSU18yNTpQQVlobHhhT0RjcE4=',
+            'authorization': 'Basic RkFDOkFKc2ZIa1dZM0dCZA==',
             'api-version': 'v200',
             'territory': 'US',
             'device-datetime': `${dateAndTime}`,
