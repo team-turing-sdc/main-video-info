@@ -1,9 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const NavWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-rows: 1.15fr 0.9fr;
+`;
+
 const Nav = styled.ul`
-  // float: left;
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  padding: 0;
   list-style: none;
+  margin: 0;
 `;
 
 const NavItem = styled.li`
@@ -13,7 +22,7 @@ const NavItem = styled.li`
 const MovieNavbar = (props) => {
 
   return (
-    <div>
+    <NavWrapper>
       <h1>{props.movie.info.name} ({props.movie.info.releaseYear})</h1>
       <Nav>
         <NavItem>Overview</NavItem>
@@ -23,7 +32,7 @@ const MovieNavbar = (props) => {
         <NavItem>Trailers</NavItem>
         <NavItem>More</NavItem>
       </Nav>
-    </div>
+    </NavWrapper>
   );
 };
 
