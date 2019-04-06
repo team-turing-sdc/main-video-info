@@ -22,6 +22,7 @@ const Subheading = styled.div`
 
 `;
 const ShowDetails = (props) => {
+  // generate date in proper format
   let currentDate = new Date();
   let month = currentDate.toLocaleString('en-us', { month: 'long'});
   let day = currentDate.getUTCDate();
