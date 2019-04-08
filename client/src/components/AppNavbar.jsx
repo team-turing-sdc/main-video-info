@@ -5,7 +5,18 @@ const AppNavbar = (props) => {
 
   return (
     <div>
-      <h1>NAVBAR</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="#">Fandangit</a>
+          </li>
+          <li>Search Bar Here</li>
+          <li>Movies</li>
+          <li>Movie Times + Tickets</li>
+          <li>Movie News</li>
+          <li>Join Fandangit VIP</li>
+        </ul>
+      </nav>
     </div>
   );
 };
