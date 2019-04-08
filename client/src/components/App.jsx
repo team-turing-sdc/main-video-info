@@ -7,7 +7,7 @@ import LocationSearch from './LocationSearch.jsx';
 import LocationShowTimes from './LocationShowtimes.jsx';
 import MovieNavbar from './MovieNavbar.jsx';
 import API_KEY from '../../key';
-// test
+
 // styled components below
 const PosterWrapper = styled.div`
   grid-column: 1 / 3;
@@ -16,6 +16,9 @@ const PosterWrapper = styled.div`
 const MovieWrapper = styled.div`
   grid-column: 2 / 3;
   grid-row: 1 / 3;
+`;
+const ContentWrapper = styled.div`
+  margin-left: 8vw;
 `;
 
 class App extends React.Component {
@@ -151,7 +154,7 @@ class App extends React.Component {
    `;
     if (this.state.movieInfo && !this.state.locationSearched) {
       return (
-        <div>
+        <ContentWrapper>
           <MovieNavbar movie={this.state.movieInfo}></MovieNavbar>
           <Container>
 
@@ -168,11 +171,11 @@ class App extends React.Component {
             <LocationSearch info={this.state.movieInfo} handleSearch={this.changeLocationSearchStatus.bind(this)}></LocationSearch>
 
         </Container>
-        </div>
+        </ContentWrapper>
         )
     } else if (this.state.movieInfo && this.state.locationSearched && this.state.showtimeInfo) {
       return (
-        <div>
+        <ContentWrapper>
           <MovieNavbar movie={this.state.movieInfo}></MovieNavbar>
           <Container>
 
@@ -189,7 +192,7 @@ class App extends React.Component {
             <LocationShowTimes showInfo={this.state.showtimeInfo}></LocationShowTimes>
 
           </Container>
-        </div>
+        </ContentWrapper>
 
         )
     } else {

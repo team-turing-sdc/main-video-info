@@ -54,6 +54,7 @@ const ArrowIcon = styled.span`
   color: #f15500;
 `;
 
+
 const MovieNavbar = (props) => {
 
   return (
@@ -65,8 +66,7 @@ const MovieNavbar = (props) => {
         <NavItem>Synopsis</NavItem>
         <NavItem>Movie Reviews</NavItem>
         <NavItem>Trailers</NavItem>
-        <NavItem>
-          More <ArrowIcon className="fas fa-caret-down"></ArrowIcon>
+        <NavItem>More <ArrowIcon className="fas fa-caret-down"></ArrowIcon>
         </NavItem>
       </Nav>
     </NavWrapper>
