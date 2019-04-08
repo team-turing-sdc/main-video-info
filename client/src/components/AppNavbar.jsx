@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const NavWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr;
   float: left;
   background-color: rgba(51,51,51,.95);
   margin: 0;
@@ -13,8 +16,17 @@ const NavWrapper = styled.div`
 `;
 
 const NavList = styled.ul`
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
   list-style: none;
   color: white;
+  margin: 0;
+  opacity: 1;
+  color: white;
+  :hover {
+    color: rgba(204, 204, 204, 0.6);
+    transition: all .2s ease-in-out;
+  }
 `;
 
 const AppTitle = styled.a`
@@ -22,43 +34,94 @@ const AppTitle = styled.a`
   font-size: 2.25em;
   color: #4AA7F6;
   text-decoration: none;
+  line-height: 8vh;
   vertical-align: top;
-  margin-left: 1vw;
+  margin-left: 0.85vw;
 `;
 const Logo = styled.img`
-  height: 4.75vh;
-  width: 3.5vw;
-  margin-top: 1vh;
+  height: 4.65vh;
+  width: 40px;
+  margin-top: 1.2vh;
 `;
 
 const ListItem = styled.li`
+  display: inline-block;
   float: left;
-  margin-right: 3.5vw;
-  font-size: 1.1em;
+  margin-right: 1vw;
+  font-size: 1em;
   font-family: ProximaNovaW01-Bold, Helvetica;
+  line-height: 8vh;
   :hover {
     color: white;
     transition: all .2s ease-in-out;
   }
 `;
 
+const SearchBar = styled.input`
+  height: 4vh;
+  width: 26vw;
+  margin-top: 1.3vh;
+  padding: 0 0 0 1vw;
+  font-size: 1.1em;
+  font-family: "Times New Roman", Georgia, Serif;
+  font-style: italic;
+  text-align: left;
+  background: rgba(235, 235, 235, .8);
+  border-radius: 25px;
+  box-shadow: inset 2px 3px 0 rgba(99, 99, 99, .5);
+  :focus {
+    background-color: #ebebeb;
+  }
+  ::placeholder {
+    color: #333;
+  }
+`;
+
+const SearchButton = styled.a`
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  background-color: #fe7900;
+  border-radius: 55%;
+  font-family: ProximaNovaW01-Bold;
+  font-style: italic;
+  font-size: 1.3em;
+  height: 38px;
+  width: 38px;
+  margin-left: 1vw;
+  line-height: 2em;
+  padding-right: 2px;
+  :hover {
+    transition: all .3s cubic-bezier(0, 0, .58, 1);
+    background-color: #f15500;
+  }
+`;
+
+const Arrow = styled.span`
+  color: #f15500;
+`;
+
 const AppNavbar = (props) => {
 
   return (
     <NavWrapper>
-      <nav>
+
         <NavList>
           <ListItem>
             <Logo src="https://s3.us-east-2.amazonaws.com/fec-hrr37-brian/fandango.png" alt="Logo"/>
             <AppTitle href="#">Fandangit</AppTitle>
           </ListItem>
-          <ListItem>Search Bar Here</ListItem>
-          <ListItem>Movies</ListItem>
-          <ListItem>Movie Times + Tickets</ListItem>
-          <ListItem>Movie News</ListItem>
-          <ListItem>Join Fandangit VIP</ListItem>
+          <ListItem>
+            <SearchBar placeholder="Enter City + State, ZIP Code, or Movie" type="text"></SearchBar>
+            <SearchButton href="#">GO</SearchButton>
+          </ListItem>
+          <ListItem>Movies <Arrow className="fas fa-caret-down"/></ListItem>
+          <ListItem>Movie Times + Tickets <Arrow className="fas fa-caret-down"/></ListItem>
+          <ListItem>Movie News <Arrow className="fas fa-caret-down"/></ListItem>
+          <ListItem>Join Fandangit<Arrow>VIP</Arrow><Arrow className="fas fa-caret-down"/></ListItem>
         </NavList>
-      </nav>
+
     </NavWrapper>
   );
 };
