@@ -12,6 +12,7 @@ const NavWrapper = styled.div`
   box-shadow: 0 3px 3px rgba(50, 50, 50, .3);
   width: 100%;
   height: 8vh;
+  margin-bottom: 10px;
 `;
 
 const NavList = styled.ul`
