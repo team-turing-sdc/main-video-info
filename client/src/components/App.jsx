@@ -19,7 +19,7 @@ const MovieWrapper = styled.div`
   grid-row: 1 / 3;
 `;
 const ContentWrapper = styled.div`
-  margin-left: 8vw;
+  margin: 0 0 0 8vw;
 `;
 
 class App extends React.Component {
@@ -146,8 +146,8 @@ class App extends React.Component {
     // if 'GO' clicked: make container slightly bigger
     const Container = styled.section`
       background: #262626;
-      height: ${this.state.locationSearched ? '82vh' : '75vh'};
-      width: ${this.state.locationSearched ? '37vw' : '36vw'};
+      height: ${this.state.locationSearched ? '77vh' : '70vh'};
+      width: ${this.state.locationSearched ? '32vw' : '30vw'};
       display: grid;
       grid-template-columns: 50% 50%;
       grid-template-rows: 47.5% 5% 47.5%;
