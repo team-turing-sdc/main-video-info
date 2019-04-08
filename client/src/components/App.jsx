@@ -6,8 +6,9 @@ import Options from './Options.jsx';
 import LocationSearch from './LocationSearch.jsx';
 import LocationShowTimes from './LocationShowtimes.jsx';
 import MovieNavbar from './MovieNavbar.jsx';
+import AppNavbar from './AppNavbar.jsx';
 import API_KEY from '../../key';
-// test
+
 // styled components below
 const PosterWrapper = styled.div`
   grid-column: 1 / 3;
@@ -17,12 +18,15 @@ const MovieWrapper = styled.div`
   grid-column: 2 / 3;
   grid-row: 1 / 3;
 `;
+const ContentWrapper = styled.div`
+  margin-left: 8vw;
+`;
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieId: 12,
+      movieId: 1,
       poster: '',
       movieInfo: null,
       locationSearched: false,
@@ -147,45 +151,55 @@ class App extends React.Component {
       display: grid;
       grid-template-columns: 50% 50%;
       grid-template-rows: 47.5% 5% 47.5%;
+      clear: left;
    `;
     if (this.state.movieInfo && !this.state.locationSearched) {
       return (
-        // nav bar
-        <MovieNavbar />
-        <Container>
+        <div>
+          <AppNavbar></AppNavbar>
+          <ContentWrapper>
+            <MovieNavbar movie={this.state.movieInfo}></MovieNavbar>
+            <Container>
 
-          <PosterWrapper>
-            <MoviePoster poster={this.state.poster}/>
-          </PosterWrapper>
+              <PosterWrapper>
+                <MoviePoster poster={this.state.poster}/>
+              </PosterWrapper>
 
-          <MovieWrapper>
-            <MovieInfo info={this.state.movieInfo}/>
-          </MovieWrapper>
+              <MovieWrapper>
+                <MovieInfo info={this.state.movieInfo}/>
+              </MovieWrapper>
 
-          <Options></Options>
+              <Options></Options>
 
-          <LocationSearch info={this.state.movieInfo} handleSearch={this.changeLocationSearchStatus.bind(this)}></LocationSearch>
+              <LocationSearch info={this.state.movieInfo} handleSearch={this.changeLocationSearchStatus.bind(this)}></LocationSearch>
 
-        </Container>
+            </Container>
+          </ContentWrapper>
+        </div>
         )
     } else if (this.state.movieInfo && this.state.locationSearched && this.state.showtimeInfo) {
       return (
-        // nav bar
-        <Container>
+        <div>
+          <AppNavbar></AppNavbar>
+          <ContentWrapper>
+            <MovieNavbar movie={this.state.movieInfo}></MovieNavbar>
+            <Container>
 
-          <PosterWrapper>
-            <MoviePoster poster={this.state.poster}/>
-          </PosterWrapper>
+              <PosterWrapper>
+                <MoviePoster poster={this.state.poster}/>
+              </PosterWrapper>
 
-          <MovieWrapper>
-            <MovieInfo info={this.state.movieInfo}/>
-          </MovieWrapper>
+              <MovieWrapper>
+                <MovieInfo info={this.state.movieInfo}/>
+              </MovieWrapper>
 
-          <Options></Options>
+              <Options></Options>
 
-          <LocationShowTimes showInfo={this.state.showtimeInfo}></LocationShowTimes>
+              <LocationShowTimes showInfo={this.state.showtimeInfo}></LocationShowTimes>
 
-        </Container>
+            </Container>
+          </ContentWrapper>
+        </div>
         )
     } else {
       return (
