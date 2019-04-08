@@ -6,6 +6,7 @@ import Options from './Options.jsx';
 import LocationSearch from './LocationSearch.jsx';
 import LocationShowTimes from './LocationShowtimes.jsx';
 import MovieNavbar from './MovieNavbar.jsx';
+import AppNavbar from './AppNavbar.jsx';
 import API_KEY from '../../key';
 
 // styled components below
@@ -154,46 +155,51 @@ class App extends React.Component {
    `;
     if (this.state.movieInfo && !this.state.locationSearched) {
       return (
-        <ContentWrapper>
-          <MovieNavbar movie={this.state.movieInfo}></MovieNavbar>
-          <Container>
+        <div>
+          <AppNavbar></AppNavbar>
+          <ContentWrapper>
+            <MovieNavbar movie={this.state.movieInfo}></MovieNavbar>
+            <Container>
 
-            <PosterWrapper>
-              <MoviePoster poster={this.state.poster}/>
-            </PosterWrapper>
+              <PosterWrapper>
+                <MoviePoster poster={this.state.poster}/>
+              </PosterWrapper>
 
-            <MovieWrapper>
-              <MovieInfo info={this.state.movieInfo}/>
-            </MovieWrapper>
+              <MovieWrapper>
+                <MovieInfo info={this.state.movieInfo}/>
+              </MovieWrapper>
 
-            <Options></Options>
+              <Options></Options>
 
-            <LocationSearch info={this.state.movieInfo} handleSearch={this.changeLocationSearchStatus.bind(this)}></LocationSearch>
+              <LocationSearch info={this.state.movieInfo} handleSearch={this.changeLocationSearchStatus.bind(this)}></LocationSearch>
 
-        </Container>
-        </ContentWrapper>
+            </Container>
+          </ContentWrapper>
+        </div>
         )
     } else if (this.state.movieInfo && this.state.locationSearched && this.state.showtimeInfo) {
       return (
-        <ContentWrapper>
-          <MovieNavbar movie={this.state.movieInfo}></MovieNavbar>
-          <Container>
+        <div>
+          <AppNavbar></AppNavbar>
+          <ContentWrapper>
+            <MovieNavbar movie={this.state.movieInfo}></MovieNavbar>
+            <Container>
 
-            <PosterWrapper>
-              <MoviePoster poster={this.state.poster}/>
-            </PosterWrapper>
+              <PosterWrapper>
+                <MoviePoster poster={this.state.poster}/>
+              </PosterWrapper>
 
-            <MovieWrapper>
-              <MovieInfo info={this.state.movieInfo}/>
-            </MovieWrapper>
+              <MovieWrapper>
+                <MovieInfo info={this.state.movieInfo}/>
+              </MovieWrapper>
 
-            <Options></Options>
+              <Options></Options>
 
-            <LocationShowTimes showInfo={this.state.showtimeInfo}></LocationShowTimes>
+              <LocationShowTimes showInfo={this.state.showtimeInfo}></LocationShowTimes>
 
-          </Container>
-        </ContentWrapper>
-
+            </Container>
+          </ContentWrapper>
+        </div>
         )
     } else {
       return (
