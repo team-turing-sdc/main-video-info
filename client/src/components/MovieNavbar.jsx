@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const NavWrapper = styled.div`
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1.15fr 0.9fr;
+  grid-template-rows: 0.75fr 0.45fr;
   background: rgba(76, 76, 76, 0.5);
   font-family: Alternate Gothic No1 D;
 `;
@@ -25,9 +25,10 @@ const Nav = styled.ul`
 const NavItem = styled.li`
   float: left;
   color: white;
-  margin-right: 1.5vw;
-  font-size: 1.5em;
+  margin-right: 3.5vw;
+  font-size: 1.1em;
   font-family: ProximaNovaW01-Bold, Helvetica;
+  text-transform: uppercase;
 `;
 
 const MovieNavbar = (props) => {
