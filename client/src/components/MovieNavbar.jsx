@@ -7,6 +7,7 @@ const NavWrapper = styled.div`
   grid-template-rows: 0.75fr 0.45fr;
   background: rgba(76, 76, 76, 0.5);
   font-family: Alternate Gothic No1 D;
+  clear: both;
 `;
 
 const MovieTitle = styled.h1`
