@@ -3,11 +3,10 @@ import styled from 'styled-components';
 
 const NavWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1.75fr 4fr 1fr;
   grid-template-rows: 1fr;
   float: left;
   background-color: rgba(51,51,51,.95);
-  margin: 0;
   text-transform: uppercase;
   border-bottom: 3px solid #f15500;
   box-shadow: 0 3px 3px rgba(50, 50, 50, .3);
@@ -16,7 +15,7 @@ const NavWrapper = styled.div`
 `;
 
 const NavList = styled.ul`
-  grid-column: 1 / 3;
+  grid-column: 1 / 4;
   grid-row: 1 / 2;
   list-style: none;
   color: white;
@@ -27,6 +26,7 @@ const NavList = styled.ul`
     color: rgba(204, 204, 204, 0.6);
     transition: all .2s ease-in-out;
   }
+  margin: 0 0 0 6vw;
 `;
 
 const AppTitle = styled.a`
@@ -59,10 +59,12 @@ const ListItem = styled.li`
 
 const SearchBar = styled.input`
   height: 4vh;
-  width: 26vw;
-  margin-top: 1.3vh;
+  width: 15vw;
+  grid-column: 2 / 4;
+  margin-top: 1.5vh;
+  margin-left: 1.25vw;
   padding: 0 0 0 1vw;
-  font-size: 1.1em;
+  font-size: 0.85em;
   font-family: "Times New Roman", Georgia, Serif;
   font-style: italic;
   text-align: left;
@@ -89,7 +91,8 @@ const SearchButton = styled.a`
   font-size: 1.3em;
   height: 38px;
   width: 38px;
-  margin-left: 1vw;
+  margin-left: 0.5vw;
+  margin-right: 5vw;
   line-height: 2em;
   padding-right: 2px;
   :hover {
