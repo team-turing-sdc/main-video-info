@@ -19,7 +19,7 @@ const MovieWrapper = styled.div`
   grid-row: 1 / 3;
 `;
 const ContentWrapper = styled.div`
-  margin-left: 8vw;
+  margin: 0 0 0 8vw;
 `;
 
 class App extends React.Component {
