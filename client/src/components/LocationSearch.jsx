@@ -6,7 +6,7 @@ const LocationContainer = styled.div`
   grid-column: 1 / 3;
   color: #ccc;
   background: rgba(51, 51, 51, .75);
-  padding: 0.5vh 2vw;;
+  padding: 0.5vh 1vw;;
   text-align: left;
   border: none;
 `;
@@ -48,8 +48,8 @@ const Directions = styled.span`
 `;
 
 const Search = styled.input`
-  height: 4.5vh;
-  width: 26vw;
+  height: 4.3vh;
+  width: 18vw;
   margin-top: 1.3vh;
   padding: 0 0 0 1vw;
   font-size: 1.25em;
@@ -77,11 +77,12 @@ const Button = styled.a`
   font-family: ProximaNovaW01-Bold;
   font-style: italic;
   font-size: 1.3em;
-  height: 4.75vh;
-  width: 3.5vw;
+  height: 38px;
+  width: 38px;
   margin-left: 1vw;
   line-height: 2.15em;
   padding-right: 2px;
+  padding-bottom: 2.5px;
   :hover {
     transition: all .3s cubic-bezier(0, 0, .58, 1);
     background-color: #f15500;
