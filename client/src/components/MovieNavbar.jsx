@@ -5,7 +5,7 @@ const NavWrapper = styled.div`
   display: grid;
   grid-template-columns: 3.5fr 1fr;
   grid-template-rows: 0.75fr 0.45fr;
-  background: rgba(76, 76, 76, 0.5);
+  // background: rgba(76, 76, 76, 0.5);
   font-family: Alternate Gothic No1 D;
   clear: both;
 `;
@@ -25,7 +25,7 @@ const Nav = styled.ul`
   margin: 0.75vh 0 0 0;
   color: white;
   :hover {
-    color: #ccc;
+    color: #9a9999;
     transition: all .2s ease-in-out;
   }
 `;
