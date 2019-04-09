@@ -147,7 +147,7 @@ class App extends React.Component {
     const Container = styled.section`
       background: #262626;
       height: ${this.state.locationSearched ? '77vh' : '70vh'};
-      width: ${this.state.locationSearched ? '27vw' : '25vw'};
+      width: ${this.state.locationSearched ? '24vw' : '22vw'};
       display: grid;
       grid-template-columns: 50% 50%;
       grid-template-rows: 47.5% 5% 47.5%;

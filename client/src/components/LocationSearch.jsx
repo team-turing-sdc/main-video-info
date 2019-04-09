@@ -49,7 +49,7 @@ const Directions = styled.span`
 
 const Search = styled.input`
   height: 4.3vh;
-  width: 18vw;
+  width: 15vw;
   margin-top: 1.3vh;
   padding: 0 0 0 1vw;
   font-size: 1.25em;
