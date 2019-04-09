@@ -9,6 +9,9 @@ const NavWrapper = styled.div`
   font-family: Alternate Gothic No1 D;
   clear: both;
   margin-left: 8vw;
+  @media screen and (max-width: 600px) {
+    display: block;
+  }
 `;
 
 const MovieTitle = styled.h1`
