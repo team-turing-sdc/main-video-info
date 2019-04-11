@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import {MovieInfo} from './MovieInfo.jsx';
 import {MoviePoster} from './MoviePoster.jsx';
 import Options from './Options.jsx';
@@ -10,17 +9,13 @@ import AppNavbar from './AppNavbar.jsx';
 import API_KEY from '../../key';
 
 // styled components below
-const PosterWrapper = styled.div`
+const PosterWrapper = window.styled.div`
   grid-column: 1 / 3;
   grid-row: 1 / 2;
 `;
-const MovieWrapper = styled.div`
-  grid-column: 2 / 3;
-  grid-row: 1 / 3;
-`;
-const ContentWrapper = styled.div`
+const ContentWrapper = window.styled.div`
   margin: 0 0 0 8vw;
-  width: 400px;
+  // width: 400px;
 `;
 
 class App extends React.Component {
@@ -43,7 +38,11 @@ class App extends React.Component {
 
   // get poster image associated with selected movie
   getMoviePoster(id) {
-    fetch(`movies/poster?movieID=${id}`)
+    let idRoute = window.location.pathname; // '/5/'
+    let parsedId = Number(idRoute.split('').filter(char => char !== '/').join(''));
+
+
+    fetch(`http://localhost:2000/movies/poster?movieID=${parsedId}`)
       .then(res => res.json())
       .then(
         result => {
@@ -58,7 +57,9 @@ class App extends React.Component {
   }
   // get correct movie info
   getMovieInfo(id) {
-    fetch(`/movies?movieID=${id}`)
+    let idRoute = window.location.pathname; // '/5/'
+    let parsedId = Number(idRoute.split('').filter(char => char !== '/').join(''));
+    fetch(`http://localhost:2000/movies?movieID=${parsedId}`)
       .then(res => res.json())
       .then(
         result => {
@@ -110,16 +111,14 @@ class App extends React.Component {
     console.log(`${year}-${month}-${day}`);
     // get date and time in proper format for headers
     let dateAndTime = date.toISOString();
-    console.log(dateAndTime);
-    console.log(lat, long)
     // using movieglu api, fetch showtimes and cinemas
     fetch(`https://api-gate2.movieglu.com/filmShowTimes/?film_id=${filmID}&date=${year}-${month}-${day}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'client': 'FAC',
+            'client': 'PERS_27',
             'x-api-key': `${API_KEY}`,
-            'authorization': 'Basic RkFDOkFKc2ZIa1dZM0dCZA==',
+            'authorization': 'Basic UEVSU18yNzpsanpzN1VnRjhUQjA=',
             'api-version': 'v200',
             'territory': 'US',
             'device-datetime': `${dateAndTime}`,
@@ -145,20 +144,23 @@ class App extends React.Component {
   render() {
     // move App container component here to utilize state
     // if 'GO' clicked: make container slightly bigger
-    const Container = styled.section`
+    const Container = window.styled.section`
       background: #262626;
-      height: ${this.state.locationSearched ? '77vh' : '70vh'};
-      // width: ${this.state.locationSearched ? '24vw' : '22vw'};
-      width: ${this.state.locationSearched ? '385px' : '395px'};
+      height: ${this.state.locationSearched ? '76vh' : '72vh'};
+      width: ${this.state.locationSearched ? '400px' : '395px'};
       display: grid;
       grid-template-columns: 50% 50%;
       grid-template-rows: 47.5% 5% 47.5%;
       clear: left;
    `;
+    const MovieWrapper = window.styled.div`
+      grid-column: 2 / 3;
+      grid-row: 1 / 3;
+      padding-left: ${this.state.locationSearched ? '8.75px' : '7.5px'};
+  `;
     if (this.state.movieInfo && !this.state.locationSearched) {
       return (
         <div>
-          <AppNavbar></AppNavbar>
           <MovieNavbar movie={this.state.movieInfo}></MovieNavbar>
           <ContentWrapper>
             {/* <MovieNavbar movie={this.state.movieInfo}></MovieNavbar> */}
@@ -183,7 +185,6 @@ class App extends React.Component {
     } else if (this.state.movieInfo && this.state.locationSearched && this.state.showtimeInfo) {
       return (
         <div>
-          <AppNavbar></AppNavbar>
           <MovieNavbar movie={this.state.movieInfo}></MovieNavbar>
           <ContentWrapper>
             <Container>
@@ -206,7 +207,7 @@ class App extends React.Component {
         )
     } else {
       return (
-        <div></div>
+        <div>ERROR</div>
       )
     }
 
