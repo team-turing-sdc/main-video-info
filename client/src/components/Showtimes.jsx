@@ -1,8 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+
 
 // STYLED COMPONENTS
-const ShowtimeButton = styled.a`
+const ShowtimeButton = window.styled.a`
   display: inline-block;
   margin-top: 1vh;
   background: #f15500;

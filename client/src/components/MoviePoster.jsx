@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+
 // styled components
-const PosterImage = styled.img`
+const PosterImage = window.styled.img`
   height: 99.75%;
-  max-width: 100%;
+  max-width: 95%;
   opacity: 1;
   transition: opacity .25s, transform .25s ease;
   :hover {
@@ -12,7 +12,7 @@ const PosterImage = styled.img`
   }
 `;
 
-const PosterDiv = styled.div`
+const PosterDiv = window.styled.div`
   position: relative;
   display: inline-block;
   overflow: hidden;

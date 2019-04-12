@@ -1,26 +1,25 @@
 import React from 'react';
-import styled from 'styled-components';
 import StarRating from './StarRating.jsx';
 import FanRating from './FanRating.jsx';
 // styled components below
 
-const ReleaseDate = styled.li`
+const ReleaseDate = window.styled.li`
   font-family: Alternate Gothic No1 D;
   color: white;
   font-size: 2.15em;
 `;
-const InfoList = styled.li`
+const InfoList = window.styled.li`
   font-family: "Times New Roman";
   font-style: italic;
   color: #CCC;
 `;
-const InfoContainer = styled.ul`
+const InfoContainer = window.styled.ul`
   text-align: center;
   list-style-type: none;
   line-height: 1.4;
-  padding: 0.75em 0 0.8em 0;
+  padding: 0.75em 0 0.75em 0;
 `;
-const StarRatingContainer = styled.div`
+const StarRatingContainer = window.styled.div`
   grid-column: 2 / 3;
   text-align: center;
   padding-top: 0.35em;
@@ -38,6 +37,10 @@ class MovieInfo extends React.Component {
     let mins = (minutes) - (60 * hours);
     let formattedTime = `${hours} hr ${mins} min`;
     return formattedTime;
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return false;
   }
 
   render() {
@@ -59,8 +62,7 @@ class MovieInfo extends React.Component {
           <InfoList>
             {this.props.info.info.genre}
           </InfoList>
-          {/* <Ratings rating={this.props.info.info.score}
-          widgetRatedColors="#f15500" widgetEmptyColors="#999999"  widgetDimensions="1.47em" widgetSpacings="0.15em" widgetHoverColors="black"> */}
+
         </InfoContainer>
 
         {/* ratings */}
@@ -68,7 +70,7 @@ class MovieInfo extends React.Component {
           <StarRating score={this.props.info.info.score}/>
         </StarRatingContainer>
 
-        <FanRating>
+        <FanRating change={this.props.change}>
         </FanRating>
       </div>
     );
