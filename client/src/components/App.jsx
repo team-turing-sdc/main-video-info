@@ -5,7 +5,6 @@ import Options from './Options.jsx';
 import LocationSearch from './LocationSearch.jsx';
 import LocationShowTimes from './LocationShowtimes.jsx';
 import MovieNavbar from './MovieNavbar.jsx';
-import AppNavbar from './AppNavbar.jsx';
 import API_KEY from '../../key';
 
 // styled components below
@@ -42,7 +41,7 @@ class App extends React.Component {
     let parsedId = Number(idRoute.split('').filter(char => char !== '/').join(''));
 
 
-    fetch(`http://localhost:2000/movies/poster?movieID=${parsedId}`)
+    fetch(`http://localhost:2000/movies/poster?movieID=${parsedId || 1}`)
       .then(res => res.json())
       .then(
         result => {
@@ -59,7 +58,7 @@ class App extends React.Component {
   getMovieInfo(id) {
     let idRoute = window.location.pathname; // '/5/'
     let parsedId = Number(idRoute.split('').filter(char => char !== '/').join(''));
-    fetch(`http://localhost:2000/movies?movieID=${parsedId}`)
+    fetch(`http://localhost:2000/movies?movieID=${parsedId || 1}`)
       .then(res => res.json())
       .then(
         result => {

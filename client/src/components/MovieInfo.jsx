@@ -39,6 +39,10 @@ class MovieInfo extends React.Component {
     return formattedTime;
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return false;
+  }
+
   render() {
     // if (!this.props.info) {
     //   return (<div></div>)
