@@ -7,7 +7,7 @@ const db = mongoose.connection;
 db.on('connected', () => {
   console.log('fec db connected');
 })
-// db schema ???
+
 const movieInfoSchema = mongoose.Schema({
   id: Number,
   name: String,

@@ -37,12 +37,12 @@ const AmenitiesItem = window.styled.li`
 
 const SeeAll = window.styled.a`
   display: block;
-  margin-top: 1.75vh;
-  margin-bottom: 1.75vh;
+  margin-top: 1vh;
+  margin-bottom: 0.75vh;
   text-decoration: none;
   text-transform: uppercase;
   font-family: ProximaNovaW01-Bold, Helvetica;
-  font-size: 1.15em;
+  font-size: 1.1em;
   color: #4AA7F6;
   :hover {
     color: #2d77ef;
