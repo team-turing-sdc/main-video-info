@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 2000 || process.env.PORT;
+const PORT = process.env.PORT || 2000;
 const db = require('../db/index.js');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -14,7 +14,7 @@ app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 })
 
-// get request example
+// get request for movie info
 app.get('/movies', (req, res) => {
   console.log(req.query);
   let movieId = req.query.movieID;

@@ -3,7 +3,8 @@ import React from 'react';
 // styled components
 const PosterImage = window.styled.img`
   height: 99.75%;
-  max-width: 95%;
+  max-width: 100%;
+  width: 100%;
   opacity: 1;
   transition: opacity .25s, transform .25s ease;
   :hover {

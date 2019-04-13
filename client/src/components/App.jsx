@@ -9,12 +9,12 @@ import API_KEY from '../../key';
 
 // styled components below
 const PosterWrapper = window.styled.div`
-  grid-column: 1 / 3;
+  grid-column: 1 / 2;
   grid-row: 1 / 2;
 `;
 const ContentWrapper = window.styled.div`
   margin: 0 0 0 8vw;
-  // width: 400px;
+  width: 400px;
 `;
 
 class App extends React.Component {
@@ -145,7 +145,7 @@ class App extends React.Component {
     // if 'GO' clicked: make container slightly bigger
     const Container = window.styled.section`
       background: #262626;
-      height: ${this.state.locationSearched ? '76vh' : '72vh'};
+      height: ${this.state.locationSearched ? '79vh' : '72vh'};
       width: ${this.state.locationSearched ? '400px' : '395px'};
       display: grid;
       grid-template-columns: 50% 50%;
