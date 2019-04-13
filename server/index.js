@@ -16,7 +16,6 @@ app.listen(PORT, () => {
 
 // get request for movie info
 app.get('/movies', (req, res) => {
-  console.log(req.query);
   let movieId = req.query.movieID;
   db.getMovieInfo(movieId, (err, results) => {
     if (err) {

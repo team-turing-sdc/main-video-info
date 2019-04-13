@@ -1,6 +1,7 @@
+const pw = require('./credentials');
 const mongoose = require('mongoose');
-const dbURI = `mongodb://${process.env.MONGODB_URI ||
-  'localhost/fec'}`;
+const dbURI = `mongodb+srv://bkwon94:${pw.pw}@cluster0-2ific.mongodb.net/fec`
+
 mongoose.connect(dbURI, { useNewUrlParser: true});
 const db = mongoose.connection;
 
@@ -42,6 +43,7 @@ let getMoviePoster = (id, callback) => {
       if (err) {
         callback(err, null);
       }
+      console.log(result);
       callback(null, result);
     });
 };
