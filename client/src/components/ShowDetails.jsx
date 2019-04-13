@@ -82,12 +82,14 @@ const ShowDetails = (props) => {
   let day = currentDate.getUTCDate();
   let dayOfWeek = currentDate.toLocaleString('en-us', { weekday: 'long' });
   let year = currentDate.getUTCFullYear();
-
+  // grab link to google maps for directions
   let link = `https://www.google.com/maps/dir/?api=1&destination=${props.cinema.cinema_name}+Phildelphia+PA&travelmode=car`
   return (
     <div>
       <TheaterName data-tip="Click for directions!" href={link} target="_blank">{props.cinema.cinema_name}</TheaterName>
+      {/* Gives hover effect for Theater name above */}
       <ReactToolTip place="top" type="light" effect="float"/>
+
       <Subheading>Movie Times for {`${dayOfWeek}, ${month} ${day}, ${year}`}</Subheading>
       {/* Seating Amenities */}
       {/* hard coded since info is not available in API used */}
