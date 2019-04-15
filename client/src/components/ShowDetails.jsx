@@ -83,7 +83,7 @@ const ShowDetails = (props) => {
   let dayOfWeek = currentDate.toLocaleString('en-us', { weekday: 'long' });
   let year = currentDate.getUTCFullYear();
   // grab link to google maps for directions
-  let link = `https://www.google.com/maps/dir/?api=1&destination=${props.cinema.cinema_name}+Phildelphia+PA&travelmode=car`
+  let link = `https://www.google.com/maps/dir/?api=1&destination=${props.cinema.cinema_name}&travelmode=car`
   return (
     <div>
       <TheaterName data-tip="Click for directions!" href={link} target="_blank">{props.cinema.cinema_name}</TheaterName>

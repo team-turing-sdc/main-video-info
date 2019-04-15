@@ -18,7 +18,7 @@ const Title = window.styled.div`
   width: 15%;
   overflow: hidden;
   text-align: center;
-  padding: 1.75vh 0.75vw 1vh 0.75vw;
+  padding: 1.75vh 0.75vw 1.75vh 0.75vw;
   vertical-align: top;
   transform: scale(1 , 1.48);
 `;

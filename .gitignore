@@ -27,7 +27,8 @@ coverage
 
 #
 .aws.json
-
+#
+db/credentials.js
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
