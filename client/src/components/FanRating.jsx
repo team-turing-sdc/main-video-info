@@ -43,7 +43,7 @@ const Branding = window.styled.span`
 
 
 const FanRating = (props) => {
-  
+
   let percentageScore = Math.floor(Math.random() * 100);
   if (percentageScore >= 65) {
     return (
@@ -56,7 +56,6 @@ const FanRating = (props) => {
           <Percentage>{percentageScore}%</Percentage>
           <Branding>Rotting Tomatoes&trade;</Branding>
         </ScoreContainer>
-
       </div>
     );
   } else {

@@ -17,11 +17,11 @@ const ContentWrapper = window.styled.div`
   width: 400px;
 `;
 
+// React component
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieId: 1,
       poster: '',
       movieInfo: null,
       locationSearched: false,
@@ -29,17 +29,17 @@ class App extends React.Component {
     };
   }
 
-  // fetch movie poster on mount
+  // fetch movie poster and info on mount
   componentDidMount() {
     this.getMoviePoster(this.state.movieId);
     this.getMovieInfo(this.state.movieId);
   }
 
   // get poster image associated with selected movie
-  getMoviePoster(id) {
-    let idRoute = window.location.pathname; // '/5/'
+  getMoviePoster() {
+    // grabs pathname i.e.) /1/ and then parses it to number 1
+    let idRoute = window.location.pathname;
     let parsedId = Number(idRoute.split('').filter(char => char !== '/').join(''));
-
 
     fetch(`http://localhost:2000/movies/poster?movieID=${parsedId || 1}`)
       .then(res => res.json())
@@ -56,8 +56,9 @@ class App extends React.Component {
   }
   // get correct movie info
   getMovieInfo(id) {
-    let idRoute = window.location.pathname; // '/5/'
+    let idRoute = window.location.pathname;
     let parsedId = Number(idRoute.split('').filter(char => char !== '/').join(''));
+  // currently doing localhost:2000/3 etc will not display properly
     fetch(`http://localhost:2000/movies?movieID=${parsedId || 1}`)
       .then(res => res.json())
       .then(
@@ -71,7 +72,7 @@ class App extends React.Component {
         }
       )
   }
-  // change state if search is activated
+  // change state if search go button is clicked and then get location of user
   changeLocationSearchStatus() {
     this.setState({
       locationSearched: true
@@ -80,17 +81,15 @@ class App extends React.Component {
   }
   // grab location of user
   getLocation() {
-    console.log('getting location');
-    let correctThis = this;
     let latitude;
     let longitude;
     navigator.geolocation.getCurrentPosition(
-      function(position) {
+      position => {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
-        correctThis.getShowtimeData(latitude, longitude);
+        this.getShowtimeData(latitude, longitude);
       },
-      function() {
+      () =>  {
         console.log('error');
       }
     )
@@ -98,7 +97,7 @@ class App extends React.Component {
   }
   // get showtime info based on user location
   getShowtimeData(lat, long) {
-    // hardcode id for now, maybe change later
+    // hardcode film id
     let filmID = 272263;
     // get current date in proper format for API
     let date = new Date();
@@ -113,6 +112,7 @@ class App extends React.Component {
     // using movieglu api, fetch showtimes and cinemas
     fetch(`https://api-gate2.movieglu.com/filmShowTimes/?film_id=${filmID}&date=${year}-${month}-${day}`, {
           method: 'GET',
+          // mode: 'no-cors',
           headers: {
             'Content-Type': 'application/json',
             'client': 'PERS_27',
@@ -143,6 +143,7 @@ class App extends React.Component {
   render() {
     // move App container component here to utilize state
     // if 'GO' clicked: make container slightly bigger
+    // refactor if possible to avoid using styled comps inside render
     const Container = window.styled.section`
       background: #262626;
       height: ${this.state.locationSearched ? '79vh' : '72vh'};
@@ -157,12 +158,13 @@ class App extends React.Component {
       grid-row: 1 / 3;
       padding-left: ${this.state.locationSearched ? '8.75px' : '7.5px'};
   `;
+  //  ensure data for movie info is received before rendering
+  // display this if movie info is ready and user has not clicked search/go
     if (this.state.movieInfo && !this.state.locationSearched) {
       return (
         <div>
           <MovieNavbar movie={this.state.movieInfo}></MovieNavbar>
           <ContentWrapper>
-            {/* <MovieNavbar movie={this.state.movieInfo}></MovieNavbar> */}
             <Container>
 
               <PosterWrapper>

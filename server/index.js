@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 2000;
 const db = require('../db/index.js');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const PORT = process.env.PORT || 2000;
 
 app.use(express.static('client/dist'))
 app.use(bodyParser.urlencoded( { extended: true } ))
@@ -16,6 +16,7 @@ app.listen(PORT, () => {
 
 // get request for movie info
 app.get('/movies', (req, res) => {
+  // if time, refactor to not use query
   let movieId = req.query.movieID;
   db.getMovieInfo(movieId, (err, results) => {
     if (err) {
@@ -25,9 +26,9 @@ app.get('/movies', (req, res) => {
     }
   })
 });
+
 // route for getting movie poster
 app.get('/movies/poster', (req, res) => {
-  // create a db helper function;
   let movieId = req.query.movieID;
   db.getMoviePoster(movieId, (err, results) => {
     if (err) {

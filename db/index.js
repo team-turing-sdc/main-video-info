@@ -1,10 +1,11 @@
 const pw = require('./credentials');
 const mongoose = require('mongoose');
 const dbURI = `mongodb+srv://bkwon94:${pw.pw}@cluster0-2ific.mongodb.net/fec`
-
+// connect to database in mongo atlas
 mongoose.connect(dbURI, { useNewUrlParser: true});
 const db = mongoose.connection;
 
+// check for connection
 db.on('connected', () => {
   console.log('fec db connected');
 })
