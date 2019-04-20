@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 // STYLED COMPS
 const Stars = window.styled.span`
   font-size: 1.55em;

@@ -1,13 +1,9 @@
 # Movie Information Component
 
-> Module worked on for FEC
+> Module worked on for SDC
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
 
 ## Table of Contents
 
@@ -17,7 +13,7 @@
 
 ## Usage
 
-> Some usage instructions
+> API KEY REQUIRED
 
 ## Requirements
 
@@ -28,12 +24,25 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ## Development
 
+DELETE at /movies/API/oldMovie
+  -send back deleted data
+
+POST at /movies/API/newMovie
+  -send back confirmation
+
+PUT at /movies/API/updateMovie
+  -send back updated information
+
+GET already implemented.
+
 ### Installing Dependencies
 
 From within the root directory:
 
-```sh
-npm install -g webpack
+```
 npm install
+npm run build
+npm run server-dev
+npm start
 ```
 

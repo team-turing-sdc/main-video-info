@@ -34,7 +34,36 @@ app.get('/movies/poster', (req, res) => {
     if (err) {
       res.sendStatus(500);
     } else {
-      console.log(results);
+      res.json(results[0].info.image);
+    }
+  })
+})
+
+app.post('/movies/API/newMovie', (req, res) => {
+    db.postNewMovie(req.body, (err, results) => {
+      if (err) {
+        res.sendStatus(500);
+      } else {
+
+      }
+    })
+})
+
+app.delete('/movies/API/oldMovie', (req, res) => {
+  db.deleteMovie(req.body, (err, results) => {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.json(results[0].info.image);
+    }
+  })
+})
+
+app.put('/movies/API/updateMovie', (req, res) => {
+  db.updateMovie(req.body, (err, results) => {
+    if (err) {
+      res.sendStatus(500);
+    } else {
       res.json(results[0].info.image);
     }
   })
