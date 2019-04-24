@@ -9,19 +9,7 @@ const cn = {
 };
 var db = pgp(cn);
 
-const seedDb = () => {
-console.time('SEEDED')
-  db.none('CREATE TABLE IF NOT EXISTS movies(id int primary key NOT NULL, name varchar(50) ,genre varchar(100),score int,runtime int, image varchar(300), rating varchar(10), releaseMonth varchar(50), releaseDay int, releaseYear int)')
-    .then(() =>{
-      db.none("COPY movies(name,genre,score,runtime,image,rating, releaseMonth, releaseDay, releaseYear, id) FROM '/mnt/c/Users/Mich/Documents/GitHub/main-video-info/db/titleInfo.csv' DELIMITER ',' CSV HEADER;")
-        .then(() => {
-          console.time('SEEDED')
-        })
-      })
-    .catch(error => {
-      console.log(error)
-    })
-}
+
 
 const getMovieInfo = (req, res) => {
   db.one(`SELECT * fROM movies WHERE id = ${id}`)
@@ -33,7 +21,7 @@ const getMovieInfo = (req, res) => {
       console.error(error)
     })
 }
-seedDb();
+
 module.exports ={
   seedDb,
   getMovieInfo

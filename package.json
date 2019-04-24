@@ -19,6 +19,7 @@
   "dependencies": {
     "aws-sdk": "^2.431.0",
     "body-parser": "^1.18.3",
+    "cassandra-driver": "^4.0.0",
     "cors": "^2.8.5",
     "csv-write-stream": "^2.0.0",
     "enzyme-to-json": "^3.3.5",

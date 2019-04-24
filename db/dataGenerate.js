@@ -24,34 +24,28 @@ function titleInfo() {
   }
 }
 
-function recursiveData () {
-  for(var i = 0; i <1000000; i++){
-    var data = titleInfo();
-    data.id = (count * 1000000) + i;
 
-    writer.write(data, ()=> {
-      if(count < 9 && i === 1000000){
-        count++;
-        recursiveData();
-      }
-      if(count === 9) {
-        writer.end();
-      }
-    })
-  }
-}
+writer.pipe(fs.createWriteStream('titleInfo.csv'));
 
 function titleGen() {
-  writer.pipe(fs.createWriteStream('titleInfo.csv'));
-  console.time('TitleInfo done')
-  recursiveData();
 
-  writer.on('finish', () =>{
-    console.timeEnd('TitleInfo done')
-    console.log('All files writen');
-  })
+    if (count < 10000000) {
+      var data = titleInfo();
+      data.id = count;
+      writer.write(data, ()=> {
+      count++;
+      if (count === 10000000) {
+          writer.end();
+          writer.on('finish', () =>{
+            console.timeEnd('TitleInfo done');
+            console.log('All files writen');
+          })
+        }else{
+          titleGen();
+        }
+      })
+    }
 
 }
-
-
+console.time('TitleInfo done')
 titleGen();
