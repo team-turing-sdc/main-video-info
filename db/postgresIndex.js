@@ -10,12 +10,35 @@ const cn = {
 var db = pgp(cn);
 
 
-
-const getMovieInfo = (req, res) => {
+const getMovieInfo = (id, callback) => {
   db.one(`SELECT * fROM movies WHERE id = ${id}`)
     .then(movieInfo => {
+      var newObject= {
+        name: movieInfo.name,
+        info: {
+          genre: movieInfo.genre,
+          score: movieInfo.score,
+          runtime: movieInfo.runtime,
+          image: movieInfo.image,
+          rating: movieInfo.rating,
+          releaseMonth: movieInfo.releasemonth,
+          releaseDay: movieInfo.releaseday,
+          releaseYear: movieInfo.releaseyear
+        }
+      }
       console.log(movieInfo)
-      res.json(movieInfo);
+      callback(null,newObject)
+    })
+    .catch(error => {
+      console.error(error)
+    })
+}
+
+const getMoviePoster = (id, callback) => {
+  db.one(`SELECT image fROM movies WHERE id = ${id}`)
+    .then(posterInfo => {
+      console.log(posterInfo.image)
+      callback(null,posterInfo.image)
     })
     .catch(error => {
       console.error(error)
@@ -23,9 +46,9 @@ const getMovieInfo = (req, res) => {
 }
 
 module.exports ={
-  seedDb,
-  getMovieInfo
-  // postNewMovie
+  getMovieInfo,
+  getMoviePoster
+
 }
 // const postNewMovie = (movieInfo, callback) =>{
 //   const {name,description,releaseng,genre,score,runtime,image,rating} = movieInfo;
