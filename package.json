@@ -33,6 +33,7 @@
     "mongod": "^2.0.0",
     "mongodb": "^3.2.2",
     "mongoose": "^5.4.20",
+    "newrelic": "^5.7.0",
     "pg": "^7.10.0",
     "pg-promise": "^8.6.5",
     "react": "^16.8.6",

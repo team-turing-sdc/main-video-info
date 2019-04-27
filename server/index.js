@@ -1,3 +1,4 @@
+const nr =require('newrelic');
 const express = require('express');
 const app = express();
 const db = require('../db/postgresIndex.js');
@@ -44,21 +45,22 @@ app.get('/movies/poster', (req, res) => {
 })
 
 app.post('/movies/API/newMovie', (req, res) => {
+  console.log(req.body)
     db.postNewMovie(req.body, (err, results) => {
       if (err) {
         res.sendStatus(500);
       } else {
-
+        res.json(results);
       }
     })
 })
 
 app.delete('/movies/API/oldMovie', (req, res) => {
-  db.deleteMovie(req.body, (err, results) => {
+  db.deleteMovie(req.body.id, (err, results) => {
     if (err) {
       res.sendStatus(500);
     } else {
-      res.json(results[0].info.image);
+      res.sendStatus(200);
     }
   })
 })
@@ -68,7 +70,7 @@ app.put('/movies/API/updateMovie', (req, res) => {
     if (err) {
       res.sendStatus(500);
     } else {
-      res.json(results[0].info.image);
+      res.json(results);
     }
   })
 })
