@@ -9,6 +9,7 @@ node_modules/
 
 ## TEST
 tests/
+newrelic.js
 
 
 pids
@@ -37,3 +38,6 @@ dist/
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+#Generated Data
+/db/titleInfo.csv
